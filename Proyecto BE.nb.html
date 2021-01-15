@@ -1772,36 +1772,18 @@ library(ggplot2)</code></pre>
 <p>#Data El data frame “sleep” es un experimento que mide los efectos de un somnífero contra placebo en las horas de sueño de 10 estudiantes. El factor “extra” es el incremento de horas de sueño, el grupo 1 es el placebo y el 2 el tratamiento, el ID es el número de estudiante</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxubGlicmFyeShkcGx5cilcbmxpYnJhcnkoZ2dwbG90MilcbmBgYFxuYGBgIn0= -->
-<pre class="r"><code>```r
-library(dplyr)
-library(ggplot2)</code></pre>
-<pre><code>
-&lt;!-- rnb-source-end --&gt;
-
-&lt;!-- rnb-chunk-end --&gt;
-
-
-&lt;!-- rnb-text-begin --&gt;
-
-
-#Exploración de los datos
-
-&lt;!-- rnb-text-end --&gt;
-
-
-&lt;!-- rnb-chunk-begin --&gt;
-
-
-&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmlldyhzbGVlcClcblxuYGBgIn0= --&gt;
-
-```r
-view(sleep)
-</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVmlldyhzbGVlcClcbmBgYCJ9 -->
+<pre class="r"><code>View(sleep)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gdmlldyhzbGVlcCkgOiBjb3VsZCBub3QgZmluZCBmdW5jdGlvbiBcInZpZXdcIlxuIn0= -->
-<pre><code>Error in view(sleep) : could not find function &quot;view&quot;</code></pre>
-<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>#Exploración de los datos</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud2l0aChzbGVlcCwgc2hhcGlyby50ZXN0KGV4dHJhW2dyb3VwID09IDFdKSlcbndpdGgoc2xlZXAsIHNoYXBpcm8udGVzdChleHRyYVtncm91cCA9PSAyXSkpXG5gYGAifQ== -->
+<pre class="r"><code>with(sleep, shapiro.test(extra[group == 1]))
+with(sleep, shapiro.test(extra[group == 2]))</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Ambos grupos tienen distribuciones normales</p>
@@ -1810,33 +1792,25 @@ view(sleep)
 <h1>Prueba t-test</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud2l0aChzbGVlcCwgc2hhcGlyby50ZXN0KGV4dHJhW2dyb3VwID09IDFdKSlcblxuYGBgIn0= -->
-<pre class="r"><code>with(sleep, shapiro.test(extra[group == 1]))
-</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud2l0aChzbGVlcCwgdC50ZXN0KGV4dHJhW2dyb3VwID09IDFdLCBleHRyYVtncm91cCA9PSAyXSkpXG5gYGAifQ== -->
+<pre class="r"><code>with(sleep, t.test(extra[group == 1], extra[group == 2]))</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFNoYXBpcm8tV2lsayBub3JtYWxpdHkgdGVzdFxuXG5kYXRhOiAgZXh0cmFbZ3JvdXAgPT0gMV1cblcgPSAwLjkyNTgxLCBwLXZhbHVlID0gMC40MDc5XG4ifQ== -->
-<pre><code>
-    Shapiro-Wilk normality test
-
-data:  extra[group == 1]
-W = 0.92581, p-value = 0.4079</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud2l0aChzbGVlcCwgc2hhcGlyby50ZXN0KGV4dHJhW2dyb3VwID09IDJdKSlcbmBgYCJ9 -->
-<pre class="r"><code>with(sleep, shapiro.test(extra[group == 2]))</code></pre>
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="standard-deviation" class="section level1">
+<h1>Standard deviation</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud2l0aChzbGVlcCwgc2QoZXh0cmFbZ3JvdXAgPT0gMV0sIGV4dHJhW2dyb3VwID09IDJdKSlcbmBgYCJ9 -->
+<pre class="r"><code>with(sleep, sd(extra[group == 1], extra[group == 2]))</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFNoYXBpcm8tV2lsayBub3JtYWxpdHkgdGVzdFxuXG5kYXRhOiAgZXh0cmFbZ3JvdXAgPT0gMl1cblcgPSAwLjkxOTMsIHAtdmFsdWUgPSAwLjM1MTFcbiJ9 -->
-<pre><code>
-    Shapiro-Wilk normality test
-
-data:  extra[group == 2]
-W = 0.9193, p-value = 0.3511</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUHJveWVjdG8gQkUiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCmBgYHtyID0gc2V0dXB9CmxpYnJhcnkoZHBseXIpCmxpYnJhcnkoZ2dwbG90MikKYGBgCgojIyBQcnVlYmEgdC10ZXN0IHBhcmEgZ3J1cG9zIGRlcGVuZGllbnRlcwoKI0RhdGEKRWwgZGF0YSBmcmFtZSAic2xlZXAiIGVzIHVuIGV4cGVyaW1lbnRvIHF1ZSBtaWRlIGxvcyBlZmVjdG9zIGRlIHVuIHNvbW7DrWZlcm8gY29udHJhIHBsYWNlYm8gZW4gbGFzIGhvcmFzIGRlIHN1ZcOxbyBkZSAxMCBlc3R1ZGlhbnRlcy4gRWwgZmFjdG9yICJleHRyYSIgZXMgZWwgaW5jcmVtZW50byBkZSBob3JhcyBkZSBzdWXDsW8sIGVsIGdydXBvIDEgZXMgZWwgcGxhY2VibyB5IGVsIDIgZWwgdHJhdGFtaWVudG8sIGVsIElEIGVzIGVsIG7Dum1lcm8gZGUgZXN0dWRpYW50ZQpgYGB7cn0KVmlldyhzbGVlcCkKYGBgCgojRXhwbG9yYWNpw7NuIGRlIGxvcyBkYXRvcwpgYGB7cn0Kd2l0aChzbGVlcCwgc2hhcGlyby50ZXN0KGV4dHJhW2dyb3VwID09IDFdKSkKd2l0aChzbGVlcCwgc2hhcGlyby50ZXN0KGV4dHJhW2dyb3VwID09IDJdKSkKYGBgCkFtYm9zIGdydXBvcyB0aWVuZW4gZGlzdHJpYnVjaW9uZXMgbm9ybWFsZXMKCiMgUHJ1ZWJhIHQtdGVzdApgYGB7cn0Kd2l0aChzbGVlcCwgdC50ZXN0KGV4dHJhW2dyb3VwID09IDFdLCBleHRyYVtncm91cCA9PSAyXSkpCmBgYAoKCgoKCgoKCgoKCgoKCgoKCgoK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUHJveWVjdG8gQkUiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCmBgYHtyID0gc2V0dXB9CmxpYnJhcnkoZHBseXIpCmxpYnJhcnkoZ2dwbG90MikKYGBgCgojIyBQcnVlYmEgdC10ZXN0IHBhcmEgZ3J1cG9zIGRlcGVuZGllbnRlcwoKI0RhdGEKRWwgZGF0YSBmcmFtZSAic2xlZXAiIGVzIHVuIGV4cGVyaW1lbnRvIHF1ZSBtaWRlIGxvcyBlZmVjdG9zIGRlIHVuIHNvbW7DrWZlcm8gY29udHJhIHBsYWNlYm8gZW4gbGFzIGhvcmFzIGRlIHN1ZcOxbyBkZSAxMCBlc3R1ZGlhbnRlcy4gRWwgZmFjdG9yICJleHRyYSIgZXMgZWwgaW5jcmVtZW50byBkZSBob3JhcyBkZSBzdWXDsW8sIGVsIGdydXBvIDEgZXMgZWwgcGxhY2VibyB5IGVsIDIgZWwgdHJhdGFtaWVudG8sIGVsIElEIGVzIGVsIG7Dum1lcm8gZGUgZXN0dWRpYW50ZQpgYGB7cn0KVmlldyhzbGVlcCkKYGBgCgojRXhwbG9yYWNpw7NuIGRlIGxvcyBkYXRvcwpgYGB7cn0Kd2l0aChzbGVlcCwgc2hhcGlyby50ZXN0KGV4dHJhW2dyb3VwID09IDFdKSkKd2l0aChzbGVlcCwgc2hhcGlyby50ZXN0KGV4dHJhW2dyb3VwID09IDJdKSkKYGBgCkFtYm9zIGdydXBvcyB0aWVuZW4gZGlzdHJpYnVjaW9uZXMgbm9ybWFsZXMKCiMgUHJ1ZWJhIHQtdGVzdApgYGB7cn0Kd2l0aChzbGVlcCwgdC50ZXN0KGV4dHJhW2dyb3VwID09IDFdLCBleHRyYVtncm91cCA9PSAyXSkpCmBgYAoKIyBTdGFuZGFyZCBkZXZpYXRpb24KYGBge3J9CndpdGgoc2xlZXAsIHNkKGV4dHJhW2dyb3VwID09IDFdLCBleHRyYVtncm91cCA9PSAyXSkpCmBgYAoKCgoKCgoKCgoKCgoKCgoKCgo=</div>
 
 
 
