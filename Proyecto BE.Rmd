@@ -2,10 +2,11 @@
 title: "Proyecto BE"
 output: html_notebook
 ---
-
+install.packages("modeest")
 ```{r = setup}
 library(dplyr)
 library(ggplot2)
+library(modeest)
 ```
 
 # Prueba t-test para grupos dependientes
@@ -25,14 +26,14 @@ Ambos grupos tienen distribuciones normales, por lo que sí se puede hacer el t-
 
 ```{r}
 # media
-mean(sleep$extra[group == 1])
-mean(sleep$extra[group == 2])
+mean(sleep$extra[sleep$group == 1])
+mean(sleep$extra[sleep$group == 2])
 # mediana
-median(sleep$extra[group == 1])
-median(sleep$extra[group == 2])
+median(sleep$extra[sleep$group == 1])
+median(sleep$extra[sleep$group == 2])
 # moda
-mode(sleep$extra[group == 1])
-mode(sleep$extra[group == 2])
+mfv(sleep$extra[sleep$group == 1])
+mfv(sleep$extra[sleep$group == 2])
 
 ```
 
