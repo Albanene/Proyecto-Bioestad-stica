@@ -48,11 +48,6 @@ with(sleep, sd(extra[group == 2]))
 with(sleep, t.test(extra[group == 1], extra[group == 2]))
 ```
 
-## Standard deviation
-```{r}
-with(sleep, sd(extra[group == 1]))
-with(sleep, sd(extra[group == 2]))
-```
 
 
 
