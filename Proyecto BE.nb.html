@@ -1767,26 +1767,58 @@ library(ggplot2)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<div id="proyecto-bioestad-stica" class="section level1">
-<h1>Proyecto-Bioestad-stica</h1>
-</div>
-<div id="base-de-datos" class="section level1">
-<h1>Base de datos</h1>
+<div id="prueba-t-test-para-grupos-dependientes" class="section level2">
+<h2>Prueba t-test para grupos dependientes</h2>
+<p>#Data El data frame “sleep” es un experimento que mide los efectos de un somnífero contra placebo en las horas de sueño de 10 estudiantes. El factor “extra” es el incremento de horas de sueño, el grupo 1 es el placebo y el 2 el tratamiento, el ID es el número de estudiante</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2xlZXAgIyBlcyB1biBleHBlcmltZW50byBxdWUgbWlkZSBsb3MgZWZlY3RvcyBkZSB1biBzb21uw61mZXJvIGNvbnRyYSBwbGFjZWJvIGVuIGxhcyBob3JhcyBkZSBzdWXDsW8gZGUgMTAgZXN0dWRpYW50ZXMuIEVsIGZhY3RvciBcImV4dHJhXCIgZXMgZWwgaW5jcmVtZW50byBkZSBob3JhcyBkZSBzdWXDsW8sIGVsIGdydXBvIDEgZXMgZWwgcGxhY2VibyB5IGVsIDIgZWwgdHJhdGFtaWVudG8sIGVsIElEIGVzIGVsIG7Dum1lcm8gZGUgZXN0dWRpYW50ZVxuYGBgIn0= -->
-<pre class="r"><code>sleep # es un experimento que mide los efectos de un somnífero contra placebo en las horas de sueño de 10 estudiantes. El factor &quot;extra&quot; es el incremento de horas de sueño, el grupo 1 es el placebo y el 2 el tratamiento, el ID es el número de estudiante</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxubGlicmFyeShkcGx5cilcbmxpYnJhcnkoZ2dwbG90MilcbmBgYFxuYGBgIn0= -->
+<pre class="r"><code>```r
+library(dplyr)
+library(ggplot2)</code></pre>
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+#Exploración de los datos
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+# Prueba t-test
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud2l0aChzbGVlcCwgdC50ZXN0KGV4dHJhW2dyb3VwID09IDFdLCBleHRyYVtncm91cCA9PSAyXSkpXG5gYGAifQ== --&gt;
+
+```r
+with(sleep, t.test(extra[group == 1], extra[group == 2]))</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-</div>
-<div id="dependent-t-test" class="section level1">
-<h1>Dependent t-test</h1>
-<p>with(sleep, t.test(extra[group == 1], extra[group == 2]))</p>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUHJveWVjdG8gQkUiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCmBgYHtyID0gc2V0dXB9CmxpYnJhcnkoZHBseXIpCmxpYnJhcnkoZ2dwbG90MikKYGBgCgojIFByb3llY3RvLUJpb2VzdGFkLXN0aWNhCiMgQmFzZSBkZSBkYXRvcwoKYGBge3J9CnNsZWVwICMgZXMgdW4gZXhwZXJpbWVudG8gcXVlIG1pZGUgbG9zIGVmZWN0b3MgZGUgdW4gc29tbsOtZmVybyBjb250cmEgcGxhY2VibyBlbiBsYXMgaG9yYXMgZGUgc3Vlw7FvIGRlIDEwIGVzdHVkaWFudGVzLiBFbCBmYWN0b3IgImV4dHJhIiBlcyBlbCBpbmNyZW1lbnRvIGRlIGhvcmFzIGRlIHN1ZcOxbywgZWwgZ3J1cG8gMSBlcyBlbCBwbGFjZWJvIHkgZWwgMiBlbCB0cmF0YW1pZW50bywgZWwgSUQgZXMgZWwgbsO6bWVybyBkZSBlc3R1ZGlhbnRlCmBgYAoKCgojIERlcGVuZGVudCB0LXRlc3QKd2l0aChzbGVlcCwgdC50ZXN0KGV4dHJhW2dyb3VwID09IDFdLCBleHRyYVtncm91cCA9PSAyXSkpCgoKCgoKCgoKCgoKCgoKCgoKCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUHJveWVjdG8gQkUiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCmBgYHtyID0gc2V0dXB9CmxpYnJhcnkoZHBseXIpCmxpYnJhcnkoZ2dwbG90MikKYGBgCgojIyBQcnVlYmEgdC10ZXN0IHBhcmEgZ3J1cG9zIGRlcGVuZGllbnRlcwoKI0RhdGEKRWwgZGF0YSBmcmFtZSAic2xlZXAiIGVzIHVuIGV4cGVyaW1lbnRvIHF1ZSBtaWRlIGxvcyBlZmVjdG9zIGRlIHVuIHNvbW7DrWZlcm8gY29udHJhIHBsYWNlYm8gZW4gbGFzIGhvcmFzIGRlIHN1ZcOxbyBkZSAxMCBlc3R1ZGlhbnRlcy4gRWwgZmFjdG9yICJleHRyYSIgZXMgZWwgaW5jcmVtZW50byBkZSBob3JhcyBkZSBzdWXDsW8sIGVsIGdydXBvIDEgZXMgZWwgcGxhY2VibyB5IGVsIDIgZWwgdHJhdGFtaWVudG8sIGVsIElEIGVzIGVsIG7Dum1lcm8gZGUgZXN0dWRpYW50ZQpgYGB7cn0KVmlldyhzbGVlcCkKYGBgCgojRXhwbG9yYWNpw7NuIGRlIGxvcyBkYXRvcwpgYGB7cn0KCmBgYAoKIyBQcnVlYmEgdC10ZXN0CmBgYHtyfQp3aXRoKHNsZWVwLCB0LnRlc3QoZXh0cmFbZ3JvdXAgPT0gMV0sIGV4dHJhW2dyb3VwID09IDJdKSkKYGBgCgoKCgoKCgoKCgoKCgoKCgoKCgo=</div>
 
 
 
