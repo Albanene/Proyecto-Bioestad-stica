@@ -1804,39 +1804,21 @@ view(sleep)
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Ambos grupos tienen distribuciones normales</p>
+<p>Ambos grupos tienen distribuciones normales, por lo que sí se puede hacer el t-test.</p>
 </div>
 <div id="prueba-t-test" class="section level1">
 <h1>Prueba t-test</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud2l0aChzbGVlcCwgc2hhcGlyby50ZXN0KGV4dHJhW2dyb3VwID09IDFdKSlcblxuYGBgIn0= -->
-<pre class="r"><code>with(sleep, shapiro.test(extra[group == 1]))
-</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud2l0aChzbGVlcCwgdC50ZXN0KGV4dHJhW2dyb3VwID09IDFdLCBleHRyYVtncm91cCA9PSAyXSkpXG5gYGAifQ== -->
+<pre class="r"><code>with(sleep, t.test(extra[group == 1], extra[group == 2]))</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFNoYXBpcm8tV2lsayBub3JtYWxpdHkgdGVzdFxuXG5kYXRhOiAgZXh0cmFbZ3JvdXAgPT0gMV1cblcgPSAwLjkyNTgxLCBwLXZhbHVlID0gMC40MDc5XG4ifQ== -->
-<pre><code>
-    Shapiro-Wilk normality test
-
-data:  extra[group == 1]
-W = 0.92581, p-value = 0.4079</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud2l0aChzbGVlcCwgc2hhcGlyby50ZXN0KGV4dHJhW2dyb3VwID09IDJdKSlcbmBgYCJ9 -->
-<pre class="r"><code>with(sleep, shapiro.test(extra[group == 2]))</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFNoYXBpcm8tV2lsayBub3JtYWxpdHkgdGVzdFxuXG5kYXRhOiAgZXh0cmFbZ3JvdXAgPT0gMl1cblcgPSAwLjkxOTMsIHAtdmFsdWUgPSAwLjM1MTFcbiJ9 -->
-<pre><code>
-    Shapiro-Wilk normality test
-
-data:  extra[group == 2]
-W = 0.9193, p-value = 0.3511</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUHJveWVjdG8gQkUiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCmBgYHtyID0gc2V0dXB9CmxpYnJhcnkoZHBseXIpCmxpYnJhcnkoZ2dwbG90MikKYGBgCgojIyBQcnVlYmEgdC10ZXN0IHBhcmEgZ3J1cG9zIGRlcGVuZGllbnRlcwoKI0RhdGEKRWwgZGF0YSBmcmFtZSAic2xlZXAiIGVzIHVuIGV4cGVyaW1lbnRvIHF1ZSBtaWRlIGxvcyBlZmVjdG9zIGRlIHVuIHNvbW7DrWZlcm8gY29udHJhIHBsYWNlYm8gZW4gbGFzIGhvcmFzIGRlIHN1ZcOxbyBkZSAxMCBlc3R1ZGlhbnRlcy4gRWwgZmFjdG9yICJleHRyYSIgZXMgZWwgaW5jcmVtZW50byBkZSBob3JhcyBkZSBzdWXDsW8sIGVsIGdydXBvIDEgZXMgZWwgcGxhY2VibyB5IGVsIDIgZWwgdHJhdGFtaWVudG8sIGVsIElEIGVzIGVsIG7Dum1lcm8gZGUgZXN0dWRpYW50ZQpgYGB7cn0KVmlldyhzbGVlcCkKYGBgCgojRXhwbG9yYWNpw7NuIGRlIGxvcyBkYXRvcwpgYGB7cn0Kd2l0aChzbGVlcCwgc2hhcGlyby50ZXN0KGV4dHJhW2dyb3VwID09IDFdKSkKd2l0aChzbGVlcCwgc2hhcGlyby50ZXN0KGV4dHJhW2dyb3VwID09IDJdKSkKYGBgCkFtYm9zIGdydXBvcyB0aWVuZW4gZGlzdHJpYnVjaW9uZXMgbm9ybWFsZXMKCiMgUHJ1ZWJhIHQtdGVzdApgYGB7cn0Kd2l0aChzbGVlcCwgdC50ZXN0KGV4dHJhW2dyb3VwID09IDFdLCBleHRyYVtncm91cCA9PSAyXSkpCmBgYAoKCgoKCgoKCgoKCgoKCgoKCgoK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUHJveWVjdG8gQkUiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCmBgYHtyID0gc2V0dXB9CmxpYnJhcnkoZHBseXIpCmxpYnJhcnkoZ2dwbG90MikKYGBgCgojIyBQcnVlYmEgdC10ZXN0IHBhcmEgZ3J1cG9zIGRlcGVuZGllbnRlcwoKI0RhdGEKRWwgZGF0YSBmcmFtZSAic2xlZXAiIGVzIHVuIGV4cGVyaW1lbnRvIHF1ZSBtaWRlIGxvcyBlZmVjdG9zIGRlIHVuIHNvbW7DrWZlcm8gY29udHJhIHBsYWNlYm8gZW4gbGFzIGhvcmFzIGRlIHN1ZcOxbyBkZSAxMCBlc3R1ZGlhbnRlcy4gRWwgZmFjdG9yICJleHRyYSIgZXMgZWwgaW5jcmVtZW50byBkZSBob3JhcyBkZSBzdWXDsW8sIGVsIGdydXBvIDEgZXMgZWwgcGxhY2VibyB5IGVsIDIgZWwgdHJhdGFtaWVudG8sIGVsIElEIGVzIGVsIG7Dum1lcm8gZGUgZXN0dWRpYW50ZQpgYGB7cn0KVmlldyhzbGVlcCkKYGBgCgojRXhwbG9yYWNpw7NuIGRlIGxvcyBkYXRvcwpgYGB7cn0Kd2l0aChzbGVlcCwgc2hhcGlyby50ZXN0KGV4dHJhW2dyb3VwID09IDFdKSkKd2l0aChzbGVlcCwgc2hhcGlyby50ZXN0KGV4dHJhW2dyb3VwID09IDJdKSkKYGBgCkFtYm9zIGdydXBvcyB0aWVuZW4gZGlzdHJpYnVjaW9uZXMgbm9ybWFsZXMsIHBvciBsbyBxdWUgc8OtIHNlIHB1ZWRlIGhhY2VyIGVsIHQtdGVzdC4KCiMgUHJ1ZWJhIHQtdGVzdApgYGB7cn0Kd2l0aChzbGVlcCwgdC50ZXN0KGV4dHJhW2dyb3VwID09IDFdLCBleHRyYVtncm91cCA9PSAyXSkpCmBgYAoKCgoKCgoKCgoKCgoKCgoKCgoK</div>
 
 
 

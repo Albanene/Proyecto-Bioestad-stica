@@ -21,7 +21,7 @@ View(sleep)
 with(sleep, shapiro.test(extra[group == 1]))
 with(sleep, shapiro.test(extra[group == 2]))
 ```
-Ambos grupos tienen distribuciones normales
+Ambos grupos tienen distribuciones normales, por lo que sí se puede hacer el t-test.
 
 # Prueba t-test
 ```{r}
