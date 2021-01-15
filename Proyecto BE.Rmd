@@ -28,6 +28,11 @@ Ambos grupos tienen distribuciones normales, por lo que sí se puede hacer el t-
 with(sleep, t.test(extra[group == 1], extra[group == 2]))
 ```
 
+# Standard deviation
+```{r}
+with(sleep, sd(extra[group == 1]))
+with(sleep, sd(extra[group == 2]))
+```
 
 
 
