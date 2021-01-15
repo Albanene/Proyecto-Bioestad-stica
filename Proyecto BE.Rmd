@@ -8,27 +8,33 @@ library(dplyr)
 library(ggplot2)
 ```
 
-## Prueba t-test para grupos dependientes
+# Prueba t-test para grupos dependientes
 
-#Data
+## Data
 El data frame "sleep" es un experimento que mide los efectos de un somnífero contra placebo en las horas de sueño de 10 estudiantes. El factor "extra" es el incremento de horas de sueño, el grupo 1 es el placebo y el 2 el tratamiento, el ID es el número de estudiante
 ```{r}
 View(sleep)
 ```
 
-#Exploración de los datos
+## Exploración de los datos
 ```{r}
 with(sleep, shapiro.test(extra[group == 1]))
 with(sleep, shapiro.test(extra[group == 2]))
 ```
 Ambos grupos tienen distribuciones normales, por lo que sí se puede hacer el t-test.
 
-# Prueba t-test
+```{r}
+# Desviación estándar
+with(sleep, sd(extra[group == 1]))
+with(sleep, sd(extra[group == 2]))
+```
+
+## Prueba t-test
 ```{r}
 with(sleep, t.test(extra[group == 1], extra[group == 2]))
 ```
 
-# Standard deviation
+## Standard deviation
 ```{r}
 with(sleep, sd(extra[group == 1]))
 with(sleep, sd(extra[group == 2]))
