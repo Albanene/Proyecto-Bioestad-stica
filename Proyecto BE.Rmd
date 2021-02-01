@@ -90,17 +90,14 @@ boxplots_sueño
 ```
 # Correlación y regresión lineal
 
-<<<<<<< Updated upstream
-## Base de datos Orange
-=======
-<<<<<<< HEAD
+
+
 
 #Base de datos Orange
 La base de datos Orange compila datos acerca de árboles de naranjas, registrando la edad, utilizando los "días desde 1968/12/31" y la circumferencia (en milímetros) de múltiples naranjos.
-=======
+
 ## Base de datos Orange
->>>>>>> fc87bb7b97042705f4619d71a17d66174c6ad747
->>>>>>> Stashed changes
+
 ```{r}
 Base2 <- Orange
 
