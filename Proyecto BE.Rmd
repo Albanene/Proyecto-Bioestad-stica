@@ -16,9 +16,16 @@ El data frame "sleep" es un experimento que mide los efectos de un somnífero co
 View(sleep)
 ```
 
+```{r}
+Sueño <- sleep
+
+View(Sueño)
+```
+
+
 ## Exploración de los datos
 ```{r}
-with(sleep, shapiro.test(extra[group == 1]))
+shapiro.test(Sueño$extra[Sueño$group == 1])
 with(sleep, shapiro.test(extra[group == 2]))
 ```
 Ambos grupos tienen distribuciones normales, por lo que sí se puede hacer el t-test.
