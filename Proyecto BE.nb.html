@@ -252,9 +252,23 @@ library(ggplot2)</code></pre>
 <p>El data frame “sleep” es un experimento que mide los efectos de un somnífero contra placebo en las horas de sueño de 10 estudiantes. El factor “extra” es el incremento de horas de sueño, el grupo 1 es el placebo y el 2 el tratamiento, el ID es el número de estudiante</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShkcGx5cilcbmxpYnJhcnkoZ2dwbG90MilcbmBgYCJ9 -->
-<pre class="r"><code>library(dplyr)
-library(ggplot2)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShkcGx5cilcbmBgYCJ9 -->
+<pre class="r"><code>library(dplyr)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5BdHRhY2hpbmcgcGFja2FnZTog46S847ixZHBseXLjpLzjuLJcblxuVGhlIGZvbGxvd2luZyBvYmplY3RzIGFyZSBtYXNrZWQgZnJvbSDjpLzjuLFwYWNrYWdlOnN0YXRz46S847iyOlxuXG4gICAgZmlsdGVyLCBsYWdcblxuVGhlIGZvbGxvd2luZyBvYmplY3RzIGFyZSBtYXNrZWQgZnJvbSDjpLzjuLFwYWNrYWdlOmJhc2XjpLzjuLI6XG5cbiAgICBpbnRlcnNlY3QsIHNldGRpZmYsIHNldGVxdWFsLCB1bmlvblxuIn0= -->
+<pre><code>
+Attaching package: 㤼㸱dplyr㤼㸲
+
+The following objects are masked from 㤼㸱package:stats㤼㸲:
+
+    filter, lag
+
+The following objects are masked from 㤼㸱package:base㤼㸲:
+
+    intersect, setdiff, setequal, union</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShnZ3Bsb3QyKVxuYGBgIn0= -->
+<pre class="r"><code>library(ggplot2)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -281,11 +295,18 @@ library(ggplot2)</code></pre>
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2hhcGlyby50ZXN0KFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMV0pXG5gYGAifQ== -->
 <pre class="r"><code>shapiro.test(Sueño$extra[Sueño$group == 1])</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFNoYXBpcm8tV2lsayBub3JtYWxpdHkgdGVzdFxuXG5kYXRhOiAgU3Vlw7FvJGV4dHJhW1N1ZcOxbyRncm91cCA9PSAxXVxuVyA9IDAuOTI1ODEsIHAtdmFsdWUgPSAwLjQwNzlcbiJ9 -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFNoYXBpcm8tV2lsayBub3JtYWxpdHkgdGVzdFxuXG5kYXRhOiAgU3Vlw7FvJGV4dHJhW1N1ZcOxbyRncm91cCA9PSAxXVxuIn0= -->
 <pre><code>
     Shapiro-Wilk normality test
 
-data:  Sueño$extra[Sueño$group == 1]
+data:  Sueño$extra[Sueño$group == 1]</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gZ3JlZ2V4cHIoY2FsbHRleHQsIHNpbmdsZWxpbmUsIGZpeGVkID0gVFJVRSkgOiBcbiAgcmVndWxhciBleHByZXNzaW9uIGlzIGludmFsaWQgVVRGLThcbiJ9 -->
+<pre><code>Error in gregexpr(calltext, singleline, fixed = TRUE) : 
+  regular expression is invalid UTF-8</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5XID0gMC45MjU4MSwgcC12YWx1ZSA9IDAuNDA3OVxuIn0= -->
+<pre><code>
 W = 0.92581, p-value = 0.4079</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2hhcGlyby50ZXN0KFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMl0pXG5gYGAifQ== -->
@@ -328,18 +349,47 @@ median(Sueño$extra[Sueño$group == 1])</code></pre>
 <!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEuNzVcbiJ9 -->
 <pre><code>[1] 1.75</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBtb2RhXG5tb2RlKFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMV0pXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBtb2RhXG5zYWNhcm1vZGEgPC0gZnVuY3Rpb24oZGF0b3Mpe1xuICBsaWJyZXJpYSA8LSB1bmlxdWUoZGF0b3MpXG4gIGluY2lkZW5jaWFzIDwtIGludGVnZXIobGVuZ3RoKGxpYnJlcmlhKSlcblxuICBmb3IgKGkgaW4gaW5jaWRlbmNpYXMpe1xuICAgIGkgPC0gMFxuICB9XG4gIFxuICBmb3IgKGRhdG8gaW4gZGF0b3Mpe1xuICAgIGF1eCA8LSAxXG4gICAgd2hpbGUgKGF1eCA8PSBsZW5ndGgobGlicmVyaWEpKXtcbiAgICAgIGlmIChkYXRvID09IGxpYnJlcmlhW2F1eF0pe1xuICAgICAgICBicmVha1xuICAgICAgfWVsc2V7XG4gICAgICBhdXggPC0gYXV4ICsgMVxuICAgICAgfVxuICAgIH1cbiAgICBpbmNpZGVuY2lhc1thdXhdIDwtIGluY2lkZW5jaWFzW2F1eF0gKyAxXG4gIH1cbiAgXG4gIGF1eG1heCA9IGluY2lkZW5jaWFzWzFdXG4gIGZvciAoaSBpbiBpbmNpZGVuY2lhcyl7XG4gICAgaWYgKGkgPiBhdXhtYXgpXG4gICAgICBhdXhtYXggPC0gaVxuICB9XG4gIFxuICBsaWJyZXJpYVthdXhtYXhdXG59XG5cbnNhY2FybW9kYShTdWXDsW8kZXh0cmFbU3Vlw7FvJGdyb3VwID09IDFdKVxuYGBgIn0= -->
 <pre class="r"><code># moda
-mode(Sueño$extra[Sueño$group == 1])</code></pre>
+sacarmoda &lt;- function(datos){
+  libreria &lt;- unique(datos)
+  incidencias &lt;- integer(length(libreria))
+
+  for (i in incidencias){
+    i &lt;- 0
+  }
+  
+  for (dato in datos){
+    aux &lt;- 1
+    while (aux &lt;= length(libreria)){
+      if (dato == libreria[aux]){
+        break
+      }else{
+      aux &lt;- aux + 1
+      }
+    }
+    incidencias[aux] &lt;- incidencias[aux] + 1
+  }
+  
+  auxmax = incidencias[1]
+  for (i in incidencias){
+    if (i &gt; auxmax)
+      auxmax &lt;- i
+  }
+  
+  libreria[auxmax]
+}
+
+sacarmoda(Sueño$extra[Sueño$group == 1])</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwibnVtZXJpY1wiXG4ifQ== -->
-<pre><code>[1] &quot;numeric&quot;</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuN1xuIn0= -->
+<pre><code>[1] 0.7</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubW9kZShTdWXDsW8kZXh0cmFbU3Vlw7FvJGdyb3VwID09IDJdKVxuYGBgIn0= -->
-<pre class="r"><code>mode(Sueño$extra[Sueño$group == 2])</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2FjYXJtb2RhKFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMl0pXG5gYGAifQ== -->
+<pre class="r"><code>sacarmoda(Sueño$extra[Sueño$group == 2])</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwibnVtZXJpY1wiXG4ifQ== -->
-<pre><code>[1] &quot;numeric&quot;</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEuOVxuIn0= -->
+<pre><code>[1] 1.9</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -348,60 +398,13 @@ mode(Sueño$extra[Sueño$group == 1])</code></pre>
 <h2>Prueba t-test</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBEZXN2aWFjacOzbiBlc3TDoW5kYXJcbnNkKFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMV0pXG5gYGAifQ== -->
-<pre class="r"><code># Desviación estándar
-sd(Sueño$extra[Sueño$group == 1])</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEuNzg5MDFcbiJ9 -->
-<pre><code>[1] 1.78901</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2QoU3Vlw7FvJGV4dHJhW1N1ZcOxbyRncm91cCA9PSAyXSlcbmBgYCJ9 -->
-<pre class="r"><code>sd(Sueño$extra[Sueño$group == 2])</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDIuMDAyMjQ5XG4ifQ== -->
-<pre><code>[1] 2.002249</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>###Correlación</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudC50ZXN0KFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMV0sIFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMl0pXG5gYGAifQ== -->
-<pre class="r"><code>t.test(Sueño$extra[Sueño$group == 1], Sueño$extra[Sueño$group == 2])</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFdlbGNoIFR3byBTYW1wbGUgdC10ZXN0XG5cbmRhdGE6ICBTdWXDsW8kZXh0cmFbU3Vlw7FvJGdyb3VwID09IDFdIGFuZCBTdWXDsW8kZXh0cmFbU3Vlw7FvJGdyb3VwID09IDJdXG50ID0gLTEuODYwOCwgZGYgPSAxNy43NzYsIHAtdmFsdWUgPSAwLjA3OTM5XG5hbHRlcm5hdGl2ZSBoeXBvdGhlc2lzOiB0cnVlIGRpZmZlcmVuY2UgaW4gbWVhbnMgaXMgbm90IGVxdWFsIHRvIDBcbjk1IHBlcmNlbnQgY29uZmlkZW5jZSBpbnRlcnZhbDpcbiAtMy4zNjU0ODMyICAwLjIwNTQ4MzJcbnNhbXBsZSBlc3RpbWF0ZXM6XG5tZWFuIG9mIHggbWVhbiBvZiB5IFxuICAgICAwLjc1ICAgICAgMi4zMyBcbiJ9 -->
-<pre><code>
-    Welch Two Sample t-test
-
-data:  Sueño$extra[Sueño$group == 1] and Sueño$extra[Sueño$group == 2]
-t = -1.8608, df = 17.776, p-value = 0.07939
-alternative hypothesis: true difference in means is not equal to 0
-95 percent confidence interval:
- -3.3654832  0.2054832
-sample estimates:
-mean of x mean of y 
-     0.75      2.33 </code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuUy5leHRyYSA8LSBTdWXDsW8kZXh0cmFcblRyYXRhbWllbnRvIDwtIGFzLm51bWVyaWMoU3Vlw7FvJGdyb3VwKVxuXG5jb3IoeCA9IFMuZXh0cmEsIHkgPSBUcmF0YW1pZW50bylcbmBgYCJ9 -->
-<pre class="r"><code>S.extra &lt;- Sueño$extra
-Tratamiento &lt;- as.numeric(Sueño$group)
-
-cor(x = S.extra, y = Tratamiento)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuNDAxNjYyNlxuIn0= -->
-<pre><code>[1] 0.4016626</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUHJveWVjdG8gQkUiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCmBgYHtyID0gc2V0dXB9CmxpYnJhcnkoZHBseXIpCmxpYnJhcnkoZ2dwbG90MikKYGBgCgojIFBydWViYSB0LXRlc3QgcGFyYSBncnVwb3MgZGVwZW5kaWVudGVzCgojIyBEYXRhCkVsIGRhdGEgZnJhbWUgInNsZWVwIiBlcyB1biBleHBlcmltZW50byBxdWUgbWlkZSBsb3MgZWZlY3RvcyBkZSB1biBzb21uw61mZXJvIGNvbnRyYSBwbGFjZWJvIGVuIGxhcyBob3JhcyBkZSBzdWXDsW8gZGUgMTAgZXN0dWRpYW50ZXMuIEVsIGZhY3RvciAiZXh0cmEiIGVzIGVsIGluY3JlbWVudG8gZGUgaG9yYXMgZGUgc3Vlw7FvLCBlbCBncnVwbyAxIGVzIGVsIHBsYWNlYm8geSBlbCAyIGVsIHRyYXRhbWllbnRvLCBlbCBJRCBlcyBlbCBuw7ptZXJvIGRlIGVzdHVkaWFudGUKYGBge3J9ClZpZXcoc2xlZXApCmBgYAoKYGBge3J9ClN1ZcOxbyA8LSBzbGVlcApgYGAKCgojIyBFeHBsb3JhY2nDs24gZGUgbG9zIGRhdG9zCmBgYHtyfQpzaGFwaXJvLnRlc3QoU3Vlw7FvJGV4dHJhW1N1ZcOxbyRncm91cCA9PSAxXSkKc2hhcGlyby50ZXN0KFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMl0pCmBgYApBbWJvcyBncnVwb3MgdGllbmVuIGRpc3RyaWJ1Y2lvbmVzIG5vcm1hbGVzLCBwb3IgbG8gcXVlIHPDrSBzZSBwdWVkZSBoYWNlciBlbCB0LXRlc3QuCgpgYGB7cn0KIyBtZWRpYQptZWFuKFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMV0pCm1lYW4oU3Vlw7FvJGV4dHJhW1N1ZcOxbyRncm91cCA9PSAyXSkKIyBtZWRpYW5hCm1lZGlhbihTdWXDsW8kZXh0cmFbU3Vlw7FvJGdyb3VwID09IDFdKQptZWRpYW4oU3Vlw7FvJGV4dHJhW1N1ZcOxbyRncm91cCA9PSAyXSkKIyBtb2RhCm1vZGUoU3Vlw7FvJGV4dHJhW1N1ZcOxbyRncm91cCA9PSAxXSkKbW9kZShTdWXDsW8kZXh0cmFbU3Vlw7FvJGdyb3VwID09IDJdKQoKYGBgCgoKYGBge3J9CiMgRGVzdmlhY2nDs24gZXN0w6FuZGFyCnNkKFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMV0pCnNkKFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMl0pCmBgYAoKIyMgUHJ1ZWJhIHQtdGVzdApgYGB7cn0KdC50ZXN0KFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMV0sIFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMl0pCmBgYAojIyNDb3JyZWxhY2nDs24KYGBge3J9ClMuZXh0cmEgPC0gU3Vlw7FvJGV4dHJhClRyYXRhbWllbnRvIDwtIGFzLm51bWVyaWMoU3Vlw7FvJGdyb3VwKQoKY29yKHggPSBTLmV4dHJhLCB5ID0gVHJhdGFtaWVudG8pCmBgYAoKYGBge3J9CnBhaXJzKFMuZXh0cmEgfiBUcmF0YW1pZW50bykKYGBgCgoKCgoKCgoKCgoKCgoKCgoK</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlByb3llY3RvIEJFIg0Kb3V0cHV0OiBodG1sX25vdGVib29rDQotLS0NCg0KYGBge3IgPSBzZXR1cH0NCmxpYnJhcnkoZHBseXIpDQpsaWJyYXJ5KGdncGxvdDIpDQpgYGANCg0KIyBQcnVlYmEgdC10ZXN0IHBhcmEgZ3J1cG9zIGRlcGVuZGllbnRlcw0KDQojIyBEYXRhDQpFbCBkYXRhIGZyYW1lICJzbGVlcCIgZXMgdW4gZXhwZXJpbWVudG8gcXVlIG1pZGUgbG9zIGVmZWN0b3MgZGUgdW4gc29tbsOtZmVybyBjb250cmEgcGxhY2VibyBlbiBsYXMgaG9yYXMgZGUgc3Vlw7FvIGRlIDEwIGVzdHVkaWFudGVzLiBFbCBmYWN0b3IgImV4dHJhIiBlcyBlbCBpbmNyZW1lbnRvIGRlIGhvcmFzIGRlIHN1ZcOxbywgZWwgZ3J1cG8gMSBlcyBlbCBwbGFjZWJvIHkgZWwgMiBlbCB0cmF0YW1pZW50bywgZWwgSUQgZXMgZWwgbsO6bWVybyBkZSBlc3R1ZGlhbnRlDQpgYGB7cn0NClZpZXcoc2xlZXApDQpgYGANCg0KYGBge3J9DQpTdWXDsW8gPC0gc2xlZXANCmBgYA0KDQoNCiMjIEV4cGxvcmFjacOzbiBkZSBsb3MgZGF0b3MNCmBgYHtyfQ0Kc2hhcGlyby50ZXN0KFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMV0pDQpzaGFwaXJvLnRlc3QoU3Vlw7FvJGV4dHJhW1N1ZcOxbyRncm91cCA9PSAyXSkNCmBgYA0KQW1ib3MgZ3J1cG9zIHRpZW5lbiBkaXN0cmlidWNpb25lcyBub3JtYWxlcywgcG9yIGxvIHF1ZSBzw60gc2UgcHVlZGUgaGFjZXIgZWwgdC10ZXN0Lg0KDQpgYGB7cn0NCiMgbWVkaWENCm1lYW4oU3Vlw7FvJGV4dHJhW1N1ZcOxbyRncm91cCA9PSAxXSkNCm1lYW4oU3Vlw7FvJGV4dHJhW1N1ZcOxbyRncm91cCA9PSAyXSkNCiMgbWVkaWFuYQ0KbWVkaWFuKFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMV0pDQptZWRpYW4oU3Vlw7FvJGV4dHJhW1N1ZcOxbyRncm91cCA9PSAyXSkNCiMgbW9kYQ0Kc2FjYXJtb2RhIDwtIGZ1bmN0aW9uKGRhdG9zKXsNCiAgbGlicmVyaWEgPC0gdW5pcXVlKGRhdG9zKQ0KICBpbmNpZGVuY2lhcyA8LSBpbnRlZ2VyKGxlbmd0aChsaWJyZXJpYSkpDQoNCiAgZm9yIChpIGluIGluY2lkZW5jaWFzKXsNCiAgICBpIDwtIDANCiAgfQ0KICANCiAgZm9yIChkYXRvIGluIGRhdG9zKXsNCiAgICBhdXggPC0gMQ0KICAgIHdoaWxlIChhdXggPD0gbGVuZ3RoKGxpYnJlcmlhKSl7DQogICAgICBpZiAoZGF0byA9PSBsaWJyZXJpYVthdXhdKXsNCiAgICAgICAgYnJlYWsNCiAgICAgIH1lbHNlew0KICAgICAgYXV4IDwtIGF1eCArIDENCiAgICAgIH0NCiAgICB9DQogICAgaW5jaWRlbmNpYXNbYXV4XSA8LSBpbmNpZGVuY2lhc1thdXhdICsgMQ0KICB9DQogIA0KICBhdXhtYXggPSBpbmNpZGVuY2lhc1sxXQ0KICBmb3IgKGkgaW4gaW5jaWRlbmNpYXMpew0KICAgIGlmIChpID4gYXV4bWF4KQ0KICAgICAgYXV4bWF4IDwtIGkNCiAgfQ0KICANCiAgbGlicmVyaWFbYXV4bWF4XQ0KfQ0KDQpzYWNhcm1vZGEoU3Vlw7FvJGV4dHJhW1N1ZcOxbyRncm91cCA9PSAxXSkNCnNhY2FybW9kYShTdWXDsW8kZXh0cmFbU3Vlw7FvJGdyb3VwID09IDJdKQ0KYGBgDQoNCg0KYGBge3J9DQojIERlc3ZpYWNpw7NuIGVzdMOhbmRhcg0Kc2QoU3Vlw7FvJGV4dHJhW1N1ZcOxbyRncm91cCA9PSAxXSkNCnNkKFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMl0pDQpgYGANCg0KIyMgUHJ1ZWJhIHQtdGVzdA0KYGBge3J9DQp0LnRlc3QoU3Vlw7FvJGV4dHJhW1N1ZcOxbyRncm91cCA9PSAxXSwgU3Vlw7FvJGV4dHJhW1N1ZcOxbyRncm91cCA9PSAyXSkNCmBgYA0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQo=</div>
 
 
 
