@@ -18,41 +18,39 @@ View(sleep)
 
 ```{r}
 Sueño <- sleep
-
-View(Sueño)
 ```
 
 
 ## Exploración de los datos
 ```{r}
 shapiro.test(Sueño$extra[Sueño$group == 1])
-with(sleep, shapiro.test(extra[group == 2]))
+shapiro.test(Sueño$extra[Sueño$group == 2])
 ```
 Ambos grupos tienen distribuciones normales, por lo que sí se puede hacer el t-test.
 
 ```{r}
 # media
-mean(sleep$extra[group == 1])
-mean(sleep$extra[group == 2])
+mean(Sueño$extra[Sueño$group == 1])
+mean(Sueño$extra[Sueño$group == 2])
 # mediana
-median(sleep$extra[group == 1])
-median(sleep$extra[group == 2])
+median(Sueño$extra[Sueño$group == 1])
+median(Sueño$extra[Sueño$group == 2])
 # moda
-mode(sleep$extra[group == 1])
-mode(sleep$extra[group == 2])
+mode(Sueño$extra[Sueño$group == 1])
+mode(Sueño$extra[Sueño$group == 2])
 
 ```
 
 
 ```{r}
 # Desviación estándar
-with(sleep, sd(extra[group == 1]))
-with(sleep, sd(extra[group == 2]))
+sd(Sueño$extra[Sueño$group == 1])
+sd(Sueño$extra[Sueño$group == 2])
 ```
 
 ## Prueba t-test
 ```{r}
-with(sleep, t.test(extra[group == 1], extra[group == 2]))
+t.test(Sueño$extra[Sueño$group == 1], Sueño$extra[Sueño$group == 2])
 ```
 
 
