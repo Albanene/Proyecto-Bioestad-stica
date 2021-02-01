@@ -52,7 +52,13 @@ sd(Sueño$extra[Sueño$group == 2])
 ```{r}
 t.test(Sueño$extra[Sueño$group == 1], Sueño$extra[Sueño$group == 2])
 ```
+###Correlación
+```{r}
+S.extra <- Sueño$extra
+Tratamiento <- as.numeric(Sueño$group)
 
+cor(x = S.extra, y = Tratamiento)
+```
 
 
 
