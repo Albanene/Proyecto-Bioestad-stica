@@ -36,9 +36,37 @@ mean(Sueño$extra[Sueño$group == 2])
 median(Sueño$extra[Sueño$group == 1])
 median(Sueño$extra[Sueño$group == 2])
 # moda
-mode(Sueño$extra[Sueño$group == 1])
-mode(Sueño$extra[Sueño$group == 2])
+sacarmoda <- function(datos){
+  libreria <- unique(datos)
+  incidencias <- integer(length(libreria))
 
+  for (i in incidencias){
+    i <- 0
+  }
+  
+  for (dato in datos){
+    aux <- 1
+    while (aux <= length(libreria)){
+      if (dato == libreria[aux]){
+        break
+      }else{
+      aux <- aux + 1
+      }
+    }
+    incidencias[aux] <- incidencias[aux] + 1
+  }
+  
+  auxmax = incidencias[1]
+  for (i in incidencias){
+    if (i > auxmax)
+      auxmax <- i
+  }
+  
+  libreria[auxmax]
+}
+
+sacarmoda(Sueño$extra[Sueño$group == 1])
+sacarmoda(Sueño$extra[Sueño$group == 2])
 ```
 
 
@@ -52,17 +80,8 @@ sd(Sueño$extra[Sueño$group == 2])
 ```{r}
 t.test(Sueño$extra[Sueño$group == 1], Sueño$extra[Sueño$group == 2])
 ```
-###Correlación
-```{r}
-S.extra <- Sueño$extra
-Tratamiento <- as.numeric(Sueño$group)
 
-cor(x = S.extra, y = Tratamiento)
-```
 
-```{r}
-pairs(S.extra ~ Tratamiento)
-```
 
 
 
