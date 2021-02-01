@@ -107,13 +107,22 @@ Base2 <- Orange
 View(Base2)
 ```
 
-##Correlación y Gráfica de correlación
+## Correlación y Gráfica de correlación
 ```{r}
 Circunferencia <- Orange$circumference
 Edad <- Orange$age
 
-cor(x = Circunferencia, y = Edad)
-pairs(Circunferencia ~ Edad)
+cor(x = Edad, y = Circunferencia)
+pairs(Edad ~ Circunferencia)
+```
+
+## Gráfica de puntos y regresión lineal
+```{r}
+Base2_scatter <- ggplot(Base2, aes(Edad, Circunferencia)) +
+  geom_point () +
+  geom_smooth(method=lm) +
+  labs(title = "Correlación entre edad del naranjo y su circunferencia", x = "Edad en días", y = "Circunferencia en mm") + theme_minimal() + theme(plot.title = element_text(size = 16, color = "#64BBCC", face = "italic", "bold", family ="serif"), text = element_text(size = 9))
+Base2_scatter
 ```
 
 
