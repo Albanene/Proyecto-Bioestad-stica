@@ -80,7 +80,7 @@ sd(Sueño$extra[Sueño$group == 2])
 ```{r}
 t.test(Sueño$extra[Sueño$group == 1], Sueño$extra[Sueño$group == 2])
 ```
-
+Aqui realizamos la prueba t test, la cual nos lanzó una p=0.07939, el cual interpretamos como casi sigificativa 
 ##Boxplot
 ```{r}
 boxplots_sueño <- ggplot(Sueño, aes(x= group, y= extra, fill= group)) +
@@ -88,9 +88,12 @@ boxplots_sueño <- ggplot(Sueño, aes(x= group, y= extra, fill= group)) +
   labs(title = "Distribución de las horas de sueño extra por grupo", x = "Grupo", y = "Horas extra") + theme_minimal() + theme(plot.title = element_text(size = 16, color = "#64BBCC", face = "italic", "bold", family ="serif"), text = element_text(size = 9), legend.title = element_blank(), legend.text = element_blank(), legend.position='none')
 boxplots_sueño
 ```
+Realizamos un boxplot para apreciar los datos de manera grafica y como es que se "relaciona" nuestras variables 
+
+
 # Correlación y regresión lineal
 
-
+Debido a que las pruevas de correalacion evaluan el cambio de las distintas variables. y nuestra primer base de datos tenia datos no apos para realizar este tipo de analisis estadistico, decidimos buscamos otra base de datos para llevar acabo estas pruebas. 
 
 
 #Base de datos Orange
@@ -112,6 +115,8 @@ Edad <- Orange$age
 cor(x = Edad, y = Circunferencia)
 pairs(Edad ~ Circunferencia)
 ```
+Realizamos una correlación entre las variables "edad" y "circunferencia", es decir que si la circunferencia de la fruta aumentaba a la par del tiempo.
+Nos resulto un coeficiente de correlación 0.9135189 siendo significativa entre las dos variables 
 
 ## Gráfica de puntos y regresión lineal
 ```{r}
@@ -121,6 +126,8 @@ Base2_scatter <- ggplot(Base2, aes(Edad, Circunferencia)) +
   labs(title = "Correlación entre edad del naranjo y su circunferencia", x = "Edad en días", y = "Circunferencia en mm") + theme_minimal() + theme(plot.title = element_text(size = 16, color = "#64BBCC", face = "italic", "bold", family ="serif"), text = element_text(size = 9))
 Base2_scatter
 ```
+
+
 # Anova de una vía
 
 ## Base de datos de Chicken Weights
@@ -139,52 +146,11 @@ shapiro.test(base3$weight[base3$feed == "meatmeal"])
 shapiro.test(base3$weight[base3$feed == "casein"])
 ```
 
-###Análisis exploratorios
 
 
-```{r}
-#Grupo 1
-mean(base3$weight[base3$feed == "horsebean"])
-median(base3$weight[base3$feed == "horsebean"])
-```
 
-```{r}
-#Grupo 2
-mean(base3$weight[base3$feed == "linseed"])
-median(base3$weight[base3$feed == "linseed"])
-```
 
-```{r}
-#Grupo 3
-mean(base3$weight[base3$feed == "soybean"])
-median(base3$weight[base3$feed == "soybean"])
-```
 
-```{r}
-#Grupo 4
-mean(base3$weight[base3$feed == "sunflower"])
-median(base3$weight[base3$feed == "sunflower"])
-```
-
-```{r}
-#Grupo 5
-mean(base3$weight[base3$feed == "meatmeal"])
-median(base3$weight[base3$feed == "meatmeal"])
-```
-
-```{r}
-#Grupo 6
-mean(base3$weight[base3$feed == "casein"])
-median(base3$weight[base3$feed == "casein"])
-```
-
-## Boxplots
-```{r}
-boxplots_chicken <- ggplot(base3, aes(x= feed, y= weight, fill= feed)) +
-  geom_boxplot() +
-  labs(title = "Distribución de los pesos en los distintos grupos", x = "Tipo de alimentación", y = "Peso") + theme_minimal() + theme(plot.title = element_text(size = 16, color = "#64BBCC", face = "italic", "bold", family ="serif"), text = element_text(size = 9), legend.title = element_blank(), legend.text = element_blank(), legend.position='none')
-boxplots_chicken
-``` 
 
 
 
