@@ -81,7 +81,19 @@ sd(Sueño$extra[Sueño$group == 2])
 t.test(Sueño$extra[Sueño$group == 1], Sueño$extra[Sueño$group == 2])
 ```
 
+```{r}
+Base2 <- Orange
 
+View(Base2)
+```
+
+```{r}
+Circunferencia <- Orange$circumference
+Edad <- Orange$age
+
+cor(x = Circunferencia, y = Edad)
+pairs(Circunferencia ~ Edad)
+```
 
 
 
