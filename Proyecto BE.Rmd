@@ -81,7 +81,7 @@ sd(Sueño$extra[Sueño$group == 2])
 t.test(Sueño$extra[Sueño$group == 1], Sueño$extra[Sueño$group == 2])
 ```
 
-##Gráficas
+##Boxplot
 ```{r}
 boxplots_sueño <- ggplot(Sueño, aes(x= group, y= extra, fill= group)) +
   geom_boxplot() +
@@ -97,6 +97,7 @@ Base2 <- Orange
 View(Base2)
 ```
 
+##Correlación y Gráfica de correlación
 ```{r}
 Circunferencia <- Orange$circumference
 Edad <- Orange$age
