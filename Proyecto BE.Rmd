@@ -137,6 +137,9 @@ View(base3)
 ```
 
 ## Exploración de los datos
+
+### Normalidad
+Las distribuciones de todos los grupos son normales
 ```{r}
 shapiro.test(base3$weight[base3$feed == "horsebean"])
 shapiro.test(base3$weight[base3$feed == "linseed"])
@@ -145,7 +148,11 @@ shapiro.test(base3$weight[base3$feed == "sunflower"])
 shapiro.test(base3$weight[base3$feed == "meatmeal"])
 shapiro.test(base3$weight[base3$feed == "casein"])
 ```
-
+### Homogeneidad de varianza
+Hay homogeneidad de varianza entre grupos
+```{r}
+levene.test(base3$weight, base3$feed)
+```
 
 
 
