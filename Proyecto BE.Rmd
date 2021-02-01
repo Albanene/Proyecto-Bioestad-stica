@@ -60,6 +60,9 @@ Tratamiento <- as.numeric(Sueño$group)
 cor(x = S.extra, y = Tratamiento)
 ```
 
+```{r}
+pairs(S.extra ~ Tratamiento)
+```
 
 
 
