@@ -121,7 +121,23 @@ Base2_scatter <- ggplot(Base2, aes(Edad, Circunferencia)) +
   labs(title = "Correlación entre edad del naranjo y su circunferencia", x = "Edad en días", y = "Circunferencia en mm") + theme_minimal() + theme(plot.title = element_text(size = 16, color = "#64BBCC", face = "italic", "bold", family ="serif"), text = element_text(size = 9))
 Base2_scatter
 ```
+# Anova de una vía
 
+## Base de datos de Chicken Weights
+```{r}
+base3 <- chickwts
+View(base3)
+```
+
+## Exploración de los datos
+```{r}
+shapiro.test(base3$weight[base3$feed == "horsebean"])
+shapiro.test(base3$weight[base3$feed == "linseed"])
+shapiro.test(base3$weight[base3$feed == "soybean"])
+shapiro.test(base3$weight[base3$feed == "sunflower"])
+shapiro.test(base3$weight[base3$feed == "meatmeal"])
+shapiro.test(base3$weight[base3$feed == "casein"])
+```
 
 
 
