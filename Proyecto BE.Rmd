@@ -138,6 +138,43 @@ View(base3)
 
 ## Exploración de los datos
 
+```{r}
+#Grupo 1
+mean(base3$weight[base3$feed == "horsebean"])
+median(base3$weight[base3$feed == "horsebean"])
+```
+
+```{r}
+#Grupo 2
+mean(base3$weight[base3$feed == "linseed"])
+median(base3$weight[base3$feed == "linseed"])
+```
+
+```{r}
+#Grupo 3
+mean(base3$weight[base3$feed == "soybean"])
+median(base3$weight[base3$feed == "soybean"])
+```
+
+```{r}
+#Grupo 4
+mean(base3$weight[base3$feed == "sunflower"])
+median(base3$weight[base3$feed == "sunflower"])
+```
+
+```{r}
+#Grupo 5
+mean(base3$weight[base3$feed == "meatmeal"])
+median(base3$weight[base3$feed == "meatmeal"])
+```
+
+```{r}
+#Grupo 6
+mean(base3$weight[base3$feed == "casein"])
+median(base3$weight[base3$feed == "casein"])
+```
+
+
 ### Normalidad
 Las distribuciones de todos los grupos son normales
 ```{r}

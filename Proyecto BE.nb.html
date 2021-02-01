@@ -339,7 +339,7 @@ sd(Sueño$extra[Sueño$group == 2])</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>##Boxplot</p>
+<p>Aqui realizamos la prueba t test, la cual nos lanzó una p=0.07939, el cual interpretamos como casi sigificativa ##Boxplot</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYm94cGxvdHNfc3Vlw7FvIDwtIGdncGxvdChTdWXDsW8sIGFlcyh4PSBncm91cCwgeT0gZXh0cmEsIGZpbGw9IGdyb3VwKSkgK1xuICBnZW9tX2JveHBsb3QoKSArXG4gIGxhYnModGl0bGUgPSBcIkRpc3RyaWJ1Y2nDs24gZGUgbGFzIGhvcmFzIGRlIHN1ZcOxbyBleHRyYSBwb3IgZ3J1cG9cIiwgeCA9IFwiR3J1cG9cIiwgeSA9IFwiSG9yYXMgZXh0cmFcIikgKyB0aGVtZV9taW5pbWFsKCkgKyB0aGVtZShwbG90LnRpdGxlID0gZWxlbWVudF90ZXh0KHNpemUgPSAxNiwgY29sb3IgPSBcIiM2NEJCQ0NcIiwgZmFjZSA9IFwiaXRhbGljXCIsIFwiYm9sZFwiLCBmYW1pbHkgPVwic2VyaWZcIiksIHRleHQgPSBlbGVtZW50X3RleHQoc2l6ZSA9IDkpLCBsZWdlbmQudGl0bGUgPSBlbGVtZW50X2JsYW5rKCksIGxlZ2VuZC50ZXh0ID0gZWxlbWVudF9ibGFuaygpLCBsZWdlbmQucG9zaXRpb249J25vbmUnKVxuYm94cGxvdHNfc3Vlw7FvXG5gYGAifQ== -->
@@ -350,10 +350,12 @@ boxplots_sueño</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>Realizamos un boxplot para apreciar los datos de manera grafica y como es que se “relaciona” nuestras variables</p>
 </div>
 </div>
 <div id="correlación-y-regresión-lineal" class="section level1">
 <h1>Correlación y regresión lineal</h1>
+<p>Debido a que las pruevas de correalacion evaluan el cambio de las distintas variables. y nuestra primer base de datos tenia datos no apos para realizar este tipo de analisis estadistico, decidimos buscamos otra base de datos para llevar acabo estas pruebas.</p>
 <p>#Base de datos Orange La base de datos Orange compila datos acerca de árboles de naranjas, registrando la edad, utilizando los “días desde 1968/12/31” y la circumferencia (en milímetros) de múltiples naranjos.</p>
 <div id="base-de-datos-orange" class="section level2">
 <h2>Base de datos Orange</h2>
@@ -380,6 +382,7 @@ pairs(Edad ~ Circunferencia)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>Realizamos una correlación entre las variables “edad” y “circunferencia”, es decir que si la circunferencia de la fruta aumentaba a la par del tiempo. Nos resulto un coeficiente de correlación 0.9135189 siendo significativa entre las dos variables</p>
 </div>
 <div id="gráfica-de-puntos-y-regresión-lineal" class="section level2">
 <h2>Gráfica de puntos y regresión lineal</h2>
@@ -413,157 +416,20 @@ View(base3)</code></pre>
 <h2>Exploración de los datos</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYmFzZTMgPC0gY2hpY2t3dHNcblZpZXcoYmFzZTMpXG5gYGAifQ== -->
-<pre class="r"><code>base3 &lt;- chickwts
-View(base3)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>###Análisis exploratorios</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2hhcGlyby50ZXN0KGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09IFwiaG9yc2ViZWFuXCJdKVxuYGBgIn0= -->
-<pre class="r"><code>shapiro.test(base3$weight[base3$feed == &quot;horsebean&quot;])</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFNoYXBpcm8tV2lsayBub3JtYWxpdHkgdGVzdFxuXG5kYXRhOiAgYmFzZTMkd2VpZ2h0W2Jhc2UzJGZlZWQgPT0gXCJob3JzZWJlYW5cIl1cblcgPSAwLjkzNzU4LCBwLXZhbHVlID0gMC41MjY0XG4ifQ== -->
-<pre><code>
-    Shapiro-Wilk normality test
-
-data:  base3$weight[base3$feed == &quot;horsebean&quot;]
-W = 0.93758, p-value = 0.5264</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2hhcGlyby50ZXN0KGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09IFwibGluc2VlZFwiXSlcbmBgYCJ9 -->
-<pre class="r"><code>shapiro.test(base3$weight[base3$feed == &quot;linseed&quot;])</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFNoYXBpcm8tV2lsayBub3JtYWxpdHkgdGVzdFxuXG5kYXRhOiAgYmFzZTMkd2VpZ2h0W2Jhc2UzJGZlZWQgPT0gXCJsaW5zZWVkXCJdXG5XID0gMC45NjkzMSwgcC12YWx1ZSA9IDAuOTAzNVxuIn0= -->
-<pre><code>
-    Shapiro-Wilk normality test
-
-data:  base3$weight[base3$feed == &quot;linseed&quot;]
-W = 0.96931, p-value = 0.9035</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2hhcGlyby50ZXN0KGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09IFwic295YmVhblwiXSlcbmBgYCJ9 -->
-<pre class="r"><code>shapiro.test(base3$weight[base3$feed == &quot;soybean&quot;])</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFNoYXBpcm8tV2lsayBub3JtYWxpdHkgdGVzdFxuXG5kYXRhOiAgYmFzZTMkd2VpZ2h0W2Jhc2UzJGZlZWQgPT0gXCJzb3liZWFuXCJdXG5XID0gMC45NDY0LCBwLXZhbHVlID0gMC41MDY0XG4ifQ== -->
-<pre><code>
-    Shapiro-Wilk normality test
-
-data:  base3$weight[base3$feed == &quot;soybean&quot;]
-W = 0.9464, p-value = 0.5064</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2hhcGlyby50ZXN0KGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09IFwic3VuZmxvd2VyXCJdKVxuYGBgIn0= -->
-<pre class="r"><code>shapiro.test(base3$weight[base3$feed == &quot;sunflower&quot;])</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFNoYXBpcm8tV2lsayBub3JtYWxpdHkgdGVzdFxuXG5kYXRhOiAgYmFzZTMkd2VpZ2h0W2Jhc2UzJGZlZWQgPT0gXCJzdW5mbG93ZXJcIl1cblcgPSAwLjkyODA5LCBwLXZhbHVlID0gMC4zNjAzXG4ifQ== -->
-<pre><code>
-    Shapiro-Wilk normality test
-
-data:  base3$weight[base3$feed == &quot;sunflower&quot;]
-W = 0.92809, p-value = 0.3603</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2hhcGlyby50ZXN0KGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09IFwibWVhdG1lYWxcIl0pXG5gYGAifQ== -->
-<pre class="r"><code>shapiro.test(base3$weight[base3$feed == &quot;meatmeal&quot;])</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFNoYXBpcm8tV2lsayBub3JtYWxpdHkgdGVzdFxuXG5kYXRhOiAgYmFzZTMkd2VpZ2h0W2Jhc2UzJGZlZWQgPT0gXCJtZWF0bWVhbFwiXVxuVyA9IDAuOTc5MTQsIHAtdmFsdWUgPSAwLjk2MTJcbiJ9 -->
-<pre><code>
-    Shapiro-Wilk normality test
-
-data:  base3$weight[base3$feed == &quot;meatmeal&quot;]
-W = 0.97914, p-value = 0.9612</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2hhcGlyby50ZXN0KGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09IFwiY2FzZWluXCJdKVxuYGBgIn0= -->
-<pre class="r"><code>shapiro.test(base3$weight[base3$feed == &quot;casein&quot;])</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFNoYXBpcm8tV2lsayBub3JtYWxpdHkgdGVzdFxuXG5kYXRhOiAgYmFzZTMkd2VpZ2h0W2Jhc2UzJGZlZWQgPT0gXCJjYXNlaW5cIl1cblcgPSAwLjkxNjYzLCBwLXZhbHVlID0gMC4yNTkyXG4ifQ== -->
-<pre><code>
-    Shapiro-Wilk normality test
-
-data:  base3$weight[base3$feed == &quot;casein&quot;]
-W = 0.91663, p-value = 0.2592</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0dydXBvIDFcbm1lYW4oYmFzZTMkd2VpZ2h0W2Jhc2UzJGZlZWQgPT0gXCJob3JzZWJlYW5cIl0pXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0dydXBvIDFcbm1lYW4oYmFzZTMkd2VpZ2h0W2Jhc2UzJGZlZWQgPT0gXCJob3JzZWJlYW5cIl0pXG5tZWRpYW4oYmFzZTMkd2VpZ2h0W2Jhc2UzJGZlZWQgPT0gXCJob3JzZWJlYW5cIl0pXG5gYGAifQ== -->
 <pre class="r"><code>#Grupo 1
-mean(base3$weight[base3$feed == &quot;horsebean&quot;])</code></pre>
+mean(base3$weight[base3$feed == &quot;horsebean&quot;])
+median(base3$weight[base3$feed == &quot;horsebean&quot;])</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDE2MC4yXG4ifQ== -->
-<pre><code>[1] 160.2</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVkaWFuKGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09IFwiaG9yc2ViZWFuXCJdKVxuYGBgIn0= -->
-<pre class="r"><code>median(base3$weight[base3$feed == &quot;horsebean&quot;])</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDE1MS41XG4ifQ== -->
-<pre><code>[1] 151.5</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0dydXBvIDJcbm1lYW4oYmFzZTMkd2VpZ2h0W2Jhc2UzJGZlZWQgPT0gXCJsaW5zZWVkXCJdKVxuYGBgIn0= -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0dydXBvIDJcbm1lYW4oYmFzZTMkd2VpZ2h0W2Jhc2UzJGZlZWQgPT0gXCJsaW5zZWVkXCJdKVxubWVkaWFuKGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09IFwibGluc2VlZFwiXSlcbmBgYCJ9 -->
 <pre class="r"><code>#Grupo 2
-mean(base3$weight[base3$feed == &quot;linseed&quot;])</code></pre>
+mean(base3$weight[base3$feed == &quot;linseed&quot;])
+median(base3$weight[base3$feed == &quot;linseed&quot;])</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDIxOC43NVxuIn0= -->
-<pre><code>[1] 218.75</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVkaWFuKGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09IFwibGluc2VlZFwiXSlcbmBgYCJ9 -->
-<pre class="r"><code>median(base3$weight[base3$feed == &quot;linseed&quot;])</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDIyMVxuIn0= -->
-<pre><code>[1] 221</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0dydXBvIDNcbm1lYW4oYmFzZTMkd2VpZ2h0W2Jhc2UzJGZlZWQgPT0gXCJzb3liZWFuXCJdKVxuYGBgIn0= -->
-<pre class="r"><code>#Grupo 3
-mean(base3$weight[base3$feed == &quot;soybean&quot;])</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDI0Ni40Mjg2XG4ifQ== -->
-<pre><code>[1] 246.4286</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVkaWFuKGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09IFwic295YmVhblwiXSlcbmBgYCJ9 -->
-<pre class="r"><code>median(base3$weight[base3$feed == &quot;soybean&quot;])</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDI0OFxuIn0= -->
-<pre><code>[1] 248</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0dydXBvIDRcbm1lYW4oYmFzZTMkd2VpZ2h0W2Jhc2UzJGZlZWQgPT0gXCJzdW5mbG93ZXJcIl0pXG5gYGAifQ== -->
-<pre class="r"><code>#Grupo 4
-mean(base3$weight[base3$feed == &quot;sunflower&quot;])</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDMyOC45MTY3XG4ifQ== -->
-<pre><code>[1] 328.9167</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVkaWFuKGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09IFwic3VuZmxvd2VyXCJdKVxuYGBgIn0= -->
-<pre class="r"><code>median(base3$weight[base3$feed == &quot;sunflower&quot;])</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDMyOFxuIn0= -->
-<pre><code>[1] 328</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0dydXBvIDVcbm1lYW4oYmFzZTMkd2VpZ2h0W2Jhc2UzJGZlZWQgPT0gXCJtZWF0bWVhbFwiXSlcbmBgYCJ9 -->
-<pre class="r"><code>#Grupo 5
-mean(base3$weight[base3$feed == &quot;meatmeal&quot;])</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDI3Ni45MDkxXG4ifQ== -->
-<pre><code>[1] 276.9091</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVkaWFuKGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09IFwibWVhdG1lYWxcIl0pXG5gYGAifQ== -->
-<pre class="r"><code>median(base3$weight[base3$feed == &quot;meatmeal&quot;])</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDI2M1xuIn0= -->
-<pre><code>[1] 263</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0dydXBvIDZcbm1lYW4oYmFzZTMkd2VpZ2h0W2Jhc2UzJGZlZWQgPT0gXCJjYXNlaW5cIl0pXG5gYGAifQ== -->
-<pre class="r"><code>#Grupo 6
-mean(base3$weight[base3$feed == &quot;casein&quot;])</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDMyMy41ODMzXG4ifQ== -->
-<pre><code>[1] 323.5833</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVkaWFuKGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09IFwiY2FzZWluXCJdKVxuYGBgIn0= -->
-<pre class="r"><code>median(base3$weight[base3$feed == &quot;casein&quot;])</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDM0MlxuIn0= -->
-<pre><code>[1] 342</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
@@ -602,11 +468,38 @@ median(base3$weight[base3$feed == &quot;casein&quot;])</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<div id="normalidad" class="section level3">
+<h3>Normalidad</h3>
+<p>Las distribuciones de todos los grupos son normales</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2hhcGlyby50ZXN0KGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09IFwiaG9yc2ViZWFuXCJdKVxuc2hhcGlyby50ZXN0KGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09IFwibGluc2VlZFwiXSlcbnNoYXBpcm8udGVzdChiYXNlMyR3ZWlnaHRbYmFzZTMkZmVlZCA9PSBcInNveWJlYW5cIl0pXG5zaGFwaXJvLnRlc3QoYmFzZTMkd2VpZ2h0W2Jhc2UzJGZlZWQgPT0gXCJzdW5mbG93ZXJcIl0pXG5zaGFwaXJvLnRlc3QoYmFzZTMkd2VpZ2h0W2Jhc2UzJGZlZWQgPT0gXCJtZWF0bWVhbFwiXSlcbnNoYXBpcm8udGVzdChiYXNlMyR3ZWlnaHRbYmFzZTMkZmVlZCA9PSBcImNhc2VpblwiXSlcbmBgYCJ9 -->
+<pre class="r"><code>shapiro.test(base3$weight[base3$feed == &quot;horsebean&quot;])
+shapiro.test(base3$weight[base3$feed == &quot;linseed&quot;])
+shapiro.test(base3$weight[base3$feed == &quot;soybean&quot;])
+shapiro.test(base3$weight[base3$feed == &quot;sunflower&quot;])
+shapiro.test(base3$weight[base3$feed == &quot;meatmeal&quot;])
+shapiro.test(base3$weight[base3$feed == &quot;casein&quot;])</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="homogeneidad-de-varianza" class="section level3">
+<h3>Homogeneidad de varianza</h3>
+<p>Hay homogeneidad de varianza entre grupos</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGV2ZW5lLnRlc3QoYmFzZTMkd2VpZ2h0LCBiYXNlMyRmZWVkKVxuYGBgIn0= -->
+<pre class="r"><code>levene.test(base3$weight, base3$feed)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 </div>
+</div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUHJveWVjdG8gQkUiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCmBgYHtyID0gc2V0dXB9CmxpYnJhcnkoZHBseXIpCmxpYnJhcnkoZ2dwbG90MikKYGBgCgojIFBydWViYSB0LXRlc3QgcGFyYSBncnVwb3MgZGVwZW5kaWVudGVzCgojIyBEYXRhCkVsIGRhdGEgZnJhbWUgInNsZWVwIiBlcyB1biBleHBlcmltZW50byBxdWUgbWlkZSBsb3MgZWZlY3RvcyBkZSB1biBzb21uw61mZXJvIGNvbnRyYSBwbGFjZWJvIGVuIGxhcyBob3JhcyBkZSBzdWXDsW8gZGUgMTAgZXN0dWRpYW50ZXMuIEVsIGZhY3RvciAiZXh0cmEiIGVzIGVsIGluY3JlbWVudG8gZGUgaG9yYXMgZGUgc3Vlw7FvLCBlbCBncnVwbyAxIGVzIGVsIHBsYWNlYm8geSBlbCAyIGVsIHRyYXRhbWllbnRvLCBlbCBJRCBlcyBlbCBuw7ptZXJvIGRlIGVzdHVkaWFudGUKYGBge3J9ClZpZXcoc2xlZXApCmBgYAoKYGBge3J9ClN1ZcOxbyA8LSBzbGVlcApgYGAKCgojIyBFeHBsb3JhY2nDs24gZGUgbG9zIGRhdG9zCmBgYHtyfQpzaGFwaXJvLnRlc3QoU3Vlw7FvJGV4dHJhW1N1ZcOxbyRncm91cCA9PSAxXSkKc2hhcGlyby50ZXN0KFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMl0pCmBgYApBbWJvcyBncnVwb3MgdGllbmVuIGRpc3RyaWJ1Y2lvbmVzIG5vcm1hbGVzLCBwb3IgbG8gcXVlIHPDrSBzZSBwdWVkZSBoYWNlciBlbCB0LXRlc3QuCgpgYGB7cn0KIyBtZWRpYQptZWFuKFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMV0pCm1lYW4oU3Vlw7FvJGV4dHJhW1N1ZcOxbyRncm91cCA9PSAyXSkKIyBtZWRpYW5hCm1lZGlhbihTdWXDsW8kZXh0cmFbU3Vlw7FvJGdyb3VwID09IDFdKQptZWRpYW4oU3Vlw7FvJGV4dHJhW1N1ZcOxbyRncm91cCA9PSAyXSkKIyBtb2RhCnNhY2FybW9kYSA8LSBmdW5jdGlvbihkYXRvcyl7CiAgbGlicmVyaWEgPC0gdW5pcXVlKGRhdG9zKQogIGluY2lkZW5jaWFzIDwtIGludGVnZXIobGVuZ3RoKGxpYnJlcmlhKSkKCiAgZm9yIChpIGluIGluY2lkZW5jaWFzKXsKICAgIGkgPC0gMAogIH0KICAKICBmb3IgKGRhdG8gaW4gZGF0b3MpewogICAgYXV4IDwtIDEKICAgIHdoaWxlIChhdXggPD0gbGVuZ3RoKGxpYnJlcmlhKSl7CiAgICAgIGlmIChkYXRvID09IGxpYnJlcmlhW2F1eF0pewogICAgICAgIGJyZWFrCiAgICAgIH1lbHNlewogICAgICBhdXggPC0gYXV4ICsgMQogICAgICB9CiAgICB9CiAgICBpbmNpZGVuY2lhc1thdXhdIDwtIGluY2lkZW5jaWFzW2F1eF0gKyAxCiAgfQogIAogIGF1eG1heCA9IGluY2lkZW5jaWFzWzFdCiAgZm9yIChpIGluIGluY2lkZW5jaWFzKXsKICAgIGlmIChpID4gYXV4bWF4KQogICAgICBhdXhtYXggPC0gaQogIH0KICAKICBsaWJyZXJpYVthdXhtYXhdCn0KCnNhY2FybW9kYShTdWXDsW8kZXh0cmFbU3Vlw7FvJGdyb3VwID09IDFdKQpzYWNhcm1vZGEoU3Vlw7FvJGV4dHJhW1N1ZcOxbyRncm91cCA9PSAyXSkKYGBgCgoKYGBge3J9CiMgRGVzdmlhY2nDs24gZXN0w6FuZGFyCnNkKFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMV0pCnNkKFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMl0pCmBgYAoKIyMgUHJ1ZWJhIHQtdGVzdApgYGB7cn0KdC50ZXN0KFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMV0sIFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMl0pCmBgYAoKIyNCb3hwbG90CmBgYHtyfQpib3hwbG90c19zdWXDsW8gPC0gZ2dwbG90KFN1ZcOxbywgYWVzKHg9IGdyb3VwLCB5PSBleHRyYSwgZmlsbD0gZ3JvdXApKSArCiAgZ2VvbV9ib3hwbG90KCkgKwogIGxhYnModGl0bGUgPSAiRGlzdHJpYnVjacOzbiBkZSBsYXMgaG9yYXMgZGUgc3Vlw7FvIGV4dHJhIHBvciBncnVwbyIsIHggPSAiR3J1cG8iLCB5ID0gIkhvcmFzIGV4dHJhIikgKyB0aGVtZV9taW5pbWFsKCkgKyB0aGVtZShwbG90LnRpdGxlID0gZWxlbWVudF90ZXh0KHNpemUgPSAxNiwgY29sb3IgPSAiIzY0QkJDQyIsIGZhY2UgPSAiaXRhbGljIiwgImJvbGQiLCBmYW1pbHkgPSJzZXJpZiIpLCB0ZXh0ID0gZWxlbWVudF90ZXh0KHNpemUgPSA5KSwgbGVnZW5kLnRpdGxlID0gZWxlbWVudF9ibGFuaygpLCBsZWdlbmQudGV4dCA9IGVsZW1lbnRfYmxhbmsoKSwgbGVnZW5kLnBvc2l0aW9uPSdub25lJykKYm94cGxvdHNfc3Vlw7FvCmBgYAojIENvcnJlbGFjacOzbiB5IHJlZ3Jlc2nDs24gbGluZWFsCgoKCgojQmFzZSBkZSBkYXRvcyBPcmFuZ2UKTGEgYmFzZSBkZSBkYXRvcyBPcmFuZ2UgY29tcGlsYSBkYXRvcyBhY2VyY2EgZGUgw6FyYm9sZXMgZGUgbmFyYW5qYXMsIHJlZ2lzdHJhbmRvIGxhIGVkYWQsIHV0aWxpemFuZG8gbG9zICJkw61hcyBkZXNkZSAxOTY4LzEyLzMxIiB5IGxhIGNpcmN1bWZlcmVuY2lhIChlbiBtaWzDrW1ldHJvcykgZGUgbcO6bHRpcGxlcyBuYXJhbmpvcy4KCiMjIEJhc2UgZGUgZGF0b3MgT3JhbmdlCgpgYGB7cn0KQmFzZTIgPC0gT3JhbmdlCgpWaWV3KEJhc2UyKQpgYGAKCiMjIENvcnJlbGFjacOzbiB5IEdyw6FmaWNhIGRlIGNvcnJlbGFjacOzbgpgYGB7cn0KQ2lyY3VuZmVyZW5jaWEgPC0gT3JhbmdlJGNpcmN1bWZlcmVuY2UKRWRhZCA8LSBPcmFuZ2UkYWdlCgpjb3IoeCA9IEVkYWQsIHkgPSBDaXJjdW5mZXJlbmNpYSkKcGFpcnMoRWRhZCB+IENpcmN1bmZlcmVuY2lhKQpgYGAKCiMjIEdyw6FmaWNhIGRlIHB1bnRvcyB5IHJlZ3Jlc2nDs24gbGluZWFsCmBgYHtyfQpCYXNlMl9zY2F0dGVyIDwtIGdncGxvdChCYXNlMiwgYWVzKEVkYWQsIENpcmN1bmZlcmVuY2lhKSkgKwogIGdlb21fcG9pbnQgKCkgKwogIGdlb21fc21vb3RoKG1ldGhvZD1sbSkgKwogIGxhYnModGl0bGUgPSAiQ29ycmVsYWNpw7NuIGVudHJlIGVkYWQgZGVsIG5hcmFuam8geSBzdSBjaXJjdW5mZXJlbmNpYSIsIHggPSAiRWRhZCBlbiBkw61hcyIsIHkgPSAiQ2lyY3VuZmVyZW5jaWEgZW4gbW0iKSArIHRoZW1lX21pbmltYWwoKSArIHRoZW1lKHBsb3QudGl0bGUgPSBlbGVtZW50X3RleHQoc2l6ZSA9IDE2LCBjb2xvciA9ICIjNjRCQkNDIiwgZmFjZSA9ICJpdGFsaWMiLCAiYm9sZCIsIGZhbWlseSA9InNlcmlmIiksIHRleHQgPSBlbGVtZW50X3RleHQoc2l6ZSA9IDkpKQpCYXNlMl9zY2F0dGVyCmBgYAojIEFub3ZhIGRlIHVuYSB2w61hCgojIyBCYXNlIGRlIGRhdG9zIGRlIENoaWNrZW4gV2VpZ2h0cwpgYGB7cn0KYmFzZTMgPC0gY2hpY2t3dHMKVmlldyhiYXNlMykKYGBgCgojIyBFeHBsb3JhY2nDs24gZGUgbG9zIGRhdG9zCmBgYHtyfQpzaGFwaXJvLnRlc3QoYmFzZTMkd2VpZ2h0W2Jhc2UzJGZlZWQgPT0gImhvcnNlYmVhbiJdKQpzaGFwaXJvLnRlc3QoYmFzZTMkd2VpZ2h0W2Jhc2UzJGZlZWQgPT0gImxpbnNlZWQiXSkKc2hhcGlyby50ZXN0KGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09ICJzb3liZWFuIl0pCnNoYXBpcm8udGVzdChiYXNlMyR3ZWlnaHRbYmFzZTMkZmVlZCA9PSAic3VuZmxvd2VyIl0pCnNoYXBpcm8udGVzdChiYXNlMyR3ZWlnaHRbYmFzZTMkZmVlZCA9PSAibWVhdG1lYWwiXSkKc2hhcGlyby50ZXN0KGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09ICJjYXNlaW4iXSkKYGBgCgojIyNBbsOhbGlzaXMgZXhwbG9yYXRvcmlvcwoKCmBgYHtyfQojR3J1cG8gMQptZWFuKGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09ICJob3JzZWJlYW4iXSkKbWVkaWFuKGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09ICJob3JzZWJlYW4iXSkKYGBgCgpgYGB7cn0KI0dydXBvIDIKbWVhbihiYXNlMyR3ZWlnaHRbYmFzZTMkZmVlZCA9PSAibGluc2VlZCJdKQptZWRpYW4oYmFzZTMkd2VpZ2h0W2Jhc2UzJGZlZWQgPT0gImxpbnNlZWQiXSkKYGBgCgpgYGB7cn0KI0dydXBvIDMKbWVhbihiYXNlMyR3ZWlnaHRbYmFzZTMkZmVlZCA9PSAic295YmVhbiJdKQptZWRpYW4oYmFzZTMkd2VpZ2h0W2Jhc2UzJGZlZWQgPT0gInNveWJlYW4iXSkKYGBgCgpgYGB7cn0KI0dydXBvIDQKbWVhbihiYXNlMyR3ZWlnaHRbYmFzZTMkZmVlZCA9PSAic3VuZmxvd2VyIl0pCm1lZGlhbihiYXNlMyR3ZWlnaHRbYmFzZTMkZmVlZCA9PSAic3VuZmxvd2VyIl0pCmBgYAoKYGBge3J9CiNHcnVwbyA1Cm1lYW4oYmFzZTMkd2VpZ2h0W2Jhc2UzJGZlZWQgPT0gIm1lYXRtZWFsIl0pCm1lZGlhbihiYXNlMyR3ZWlnaHRbYmFzZTMkZmVlZCA9PSAibWVhdG1lYWwiXSkKYGBgCgpgYGB7cn0KI0dydXBvIDYKbWVhbihiYXNlMyR3ZWlnaHRbYmFzZTMkZmVlZCA9PSAiY2FzZWluIl0pCm1lZGlhbihiYXNlMyR3ZWlnaHRbYmFzZTMkZmVlZCA9PSAiY2FzZWluIl0pCmBgYAoKCgoKCgoKCgoKCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUHJveWVjdG8gQkUiCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCmBgYHtyID0gc2V0dXB9CmxpYnJhcnkoZHBseXIpCmxpYnJhcnkoZ2dwbG90MikKYGBgCgojIFBydWViYSB0LXRlc3QgcGFyYSBncnVwb3MgZGVwZW5kaWVudGVzCgojIyBEYXRhCkVsIGRhdGEgZnJhbWUgInNsZWVwIiBlcyB1biBleHBlcmltZW50byBxdWUgbWlkZSBsb3MgZWZlY3RvcyBkZSB1biBzb21uw61mZXJvIGNvbnRyYSBwbGFjZWJvIGVuIGxhcyBob3JhcyBkZSBzdWXDsW8gZGUgMTAgZXN0dWRpYW50ZXMuIEVsIGZhY3RvciAiZXh0cmEiIGVzIGVsIGluY3JlbWVudG8gZGUgaG9yYXMgZGUgc3Vlw7FvLCBlbCBncnVwbyAxIGVzIGVsIHBsYWNlYm8geSBlbCAyIGVsIHRyYXRhbWllbnRvLCBlbCBJRCBlcyBlbCBuw7ptZXJvIGRlIGVzdHVkaWFudGUKYGBge3J9ClZpZXcoc2xlZXApCmBgYAoKYGBge3J9ClN1ZcOxbyA8LSBzbGVlcApgYGAKCgojIyBFeHBsb3JhY2nDs24gZGUgbG9zIGRhdG9zCmBgYHtyfQpzaGFwaXJvLnRlc3QoU3Vlw7FvJGV4dHJhW1N1ZcOxbyRncm91cCA9PSAxXSkKc2hhcGlyby50ZXN0KFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMl0pCmBgYApBbWJvcyBncnVwb3MgdGllbmVuIGRpc3RyaWJ1Y2lvbmVzIG5vcm1hbGVzLCBwb3IgbG8gcXVlIHPDrSBzZSBwdWVkZSBoYWNlciBlbCB0LXRlc3QuCgpgYGB7cn0KIyBtZWRpYQptZWFuKFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMV0pCm1lYW4oU3Vlw7FvJGV4dHJhW1N1ZcOxbyRncm91cCA9PSAyXSkKIyBtZWRpYW5hCm1lZGlhbihTdWXDsW8kZXh0cmFbU3Vlw7FvJGdyb3VwID09IDFdKQptZWRpYW4oU3Vlw7FvJGV4dHJhW1N1ZcOxbyRncm91cCA9PSAyXSkKIyBtb2RhCnNhY2FybW9kYSA8LSBmdW5jdGlvbihkYXRvcyl7CiAgbGlicmVyaWEgPC0gdW5pcXVlKGRhdG9zKQogIGluY2lkZW5jaWFzIDwtIGludGVnZXIobGVuZ3RoKGxpYnJlcmlhKSkKCiAgZm9yIChpIGluIGluY2lkZW5jaWFzKXsKICAgIGkgPC0gMAogIH0KICAKICBmb3IgKGRhdG8gaW4gZGF0b3MpewogICAgYXV4IDwtIDEKICAgIHdoaWxlIChhdXggPD0gbGVuZ3RoKGxpYnJlcmlhKSl7CiAgICAgIGlmIChkYXRvID09IGxpYnJlcmlhW2F1eF0pewogICAgICAgIGJyZWFrCiAgICAgIH1lbHNlewogICAgICBhdXggPC0gYXV4ICsgMQogICAgICB9CiAgICB9CiAgICBpbmNpZGVuY2lhc1thdXhdIDwtIGluY2lkZW5jaWFzW2F1eF0gKyAxCiAgfQogIAogIGF1eG1heCA9IGluY2lkZW5jaWFzWzFdCiAgZm9yIChpIGluIGluY2lkZW5jaWFzKXsKICAgIGlmIChpID4gYXV4bWF4KQogICAgICBhdXhtYXggPC0gaQogIH0KICAKICBsaWJyZXJpYVthdXhtYXhdCn0KCnNhY2FybW9kYShTdWXDsW8kZXh0cmFbU3Vlw7FvJGdyb3VwID09IDFdKQpzYWNhcm1vZGEoU3Vlw7FvJGV4dHJhW1N1ZcOxbyRncm91cCA9PSAyXSkKYGBgCgoKYGBge3J9CiMgRGVzdmlhY2nDs24gZXN0w6FuZGFyCnNkKFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMV0pCnNkKFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMl0pCmBgYAoKIyMgUHJ1ZWJhIHQtdGVzdApgYGB7cn0KdC50ZXN0KFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMV0sIFN1ZcOxbyRleHRyYVtTdWXDsW8kZ3JvdXAgPT0gMl0pCmBgYApBcXVpIHJlYWxpemFtb3MgbGEgcHJ1ZWJhIHQgdGVzdCwgbGEgY3VhbCBub3MgbGFuesOzIHVuYSBwPTAuMDc5MzksIGVsIGN1YWwgaW50ZXJwcmV0YW1vcyBjb21vIGNhc2kgc2lnaWZpY2F0aXZhIAojI0JveHBsb3QKYGBge3J9CmJveHBsb3RzX3N1ZcOxbyA8LSBnZ3Bsb3QoU3Vlw7FvLCBhZXMoeD0gZ3JvdXAsIHk9IGV4dHJhLCBmaWxsPSBncm91cCkpICsKICBnZW9tX2JveHBsb3QoKSArCiAgbGFicyh0aXRsZSA9ICJEaXN0cmlidWNpw7NuIGRlIGxhcyBob3JhcyBkZSBzdWXDsW8gZXh0cmEgcG9yIGdydXBvIiwgeCA9ICJHcnVwbyIsIHkgPSAiSG9yYXMgZXh0cmEiKSArIHRoZW1lX21pbmltYWwoKSArIHRoZW1lKHBsb3QudGl0bGUgPSBlbGVtZW50X3RleHQoc2l6ZSA9IDE2LCBjb2xvciA9ICIjNjRCQkNDIiwgZmFjZSA9ICJpdGFsaWMiLCAiYm9sZCIsIGZhbWlseSA9InNlcmlmIiksIHRleHQgPSBlbGVtZW50X3RleHQoc2l6ZSA9IDkpLCBsZWdlbmQudGl0bGUgPSBlbGVtZW50X2JsYW5rKCksIGxlZ2VuZC50ZXh0ID0gZWxlbWVudF9ibGFuaygpLCBsZWdlbmQucG9zaXRpb249J25vbmUnKQpib3hwbG90c19zdWXDsW8KYGBgClJlYWxpemFtb3MgdW4gYm94cGxvdCBwYXJhIGFwcmVjaWFyIGxvcyBkYXRvcyBkZSBtYW5lcmEgZ3JhZmljYSB5IGNvbW8gZXMgcXVlIHNlICJyZWxhY2lvbmEiIG51ZXN0cmFzIHZhcmlhYmxlcyAKCgojIENvcnJlbGFjacOzbiB5IHJlZ3Jlc2nDs24gbGluZWFsCgpEZWJpZG8gYSBxdWUgbGFzIHBydWV2YXMgZGUgY29ycmVhbGFjaW9uIGV2YWx1YW4gZWwgY2FtYmlvIGRlIGxhcyBkaXN0aW50YXMgdmFyaWFibGVzLiB5IG51ZXN0cmEgcHJpbWVyIGJhc2UgZGUgZGF0b3MgdGVuaWEgZGF0b3Mgbm8gYXBvcyBwYXJhIHJlYWxpemFyIGVzdGUgdGlwbyBkZSBhbmFsaXNpcyBlc3RhZGlzdGljbywgZGVjaWRpbW9zIGJ1c2NhbW9zIG90cmEgYmFzZSBkZSBkYXRvcyBwYXJhIGxsZXZhciBhY2FibyBlc3RhcyBwcnVlYmFzLiAKCgojQmFzZSBkZSBkYXRvcyBPcmFuZ2UKTGEgYmFzZSBkZSBkYXRvcyBPcmFuZ2UgY29tcGlsYSBkYXRvcyBhY2VyY2EgZGUgw6FyYm9sZXMgZGUgbmFyYW5qYXMsIHJlZ2lzdHJhbmRvIGxhIGVkYWQsIHV0aWxpemFuZG8gbG9zICJkw61hcyBkZXNkZSAxOTY4LzEyLzMxIiB5IGxhIGNpcmN1bWZlcmVuY2lhIChlbiBtaWzDrW1ldHJvcykgZGUgbcO6bHRpcGxlcyBuYXJhbmpvcy4KCiMjIEJhc2UgZGUgZGF0b3MgT3JhbmdlCgpgYGB7cn0KQmFzZTIgPC0gT3JhbmdlCgpWaWV3KEJhc2UyKQpgYGAKCiMjIENvcnJlbGFjacOzbiB5IEdyw6FmaWNhIGRlIGNvcnJlbGFjacOzbgpgYGB7cn0KQ2lyY3VuZmVyZW5jaWEgPC0gT3JhbmdlJGNpcmN1bWZlcmVuY2UKRWRhZCA8LSBPcmFuZ2UkYWdlCgpjb3IoeCA9IEVkYWQsIHkgPSBDaXJjdW5mZXJlbmNpYSkKcGFpcnMoRWRhZCB+IENpcmN1bmZlcmVuY2lhKQpgYGAKUmVhbGl6YW1vcyB1bmEgY29ycmVsYWNpw7NuIGVudHJlIGxhcyB2YXJpYWJsZXMgImVkYWQiIHkgImNpcmN1bmZlcmVuY2lhIiwgZXMgZGVjaXIgcXVlIHNpIGxhIGNpcmN1bmZlcmVuY2lhIGRlIGxhIGZydXRhIGF1bWVudGFiYSBhIGxhIHBhciBkZWwgdGllbXBvLgpOb3MgcmVzdWx0byB1biBjb2VmaWNpZW50ZSBkZSBjb3JyZWxhY2nDs24gMC45MTM1MTg5IHNpZW5kbyBzaWduaWZpY2F0aXZhIGVudHJlIGxhcyBkb3MgdmFyaWFibGVzIAoKIyMgR3LDoWZpY2EgZGUgcHVudG9zIHkgcmVncmVzacOzbiBsaW5lYWwKYGBge3J9CkJhc2UyX3NjYXR0ZXIgPC0gZ2dwbG90KEJhc2UyLCBhZXMoRWRhZCwgQ2lyY3VuZmVyZW5jaWEpKSArCiAgZ2VvbV9wb2ludCAoKSArCiAgZ2VvbV9zbW9vdGgobWV0aG9kPWxtKSArCiAgbGFicyh0aXRsZSA9ICJDb3JyZWxhY2nDs24gZW50cmUgZWRhZCBkZWwgbmFyYW5qbyB5IHN1IGNpcmN1bmZlcmVuY2lhIiwgeCA9ICJFZGFkIGVuIGTDrWFzIiwgeSA9ICJDaXJjdW5mZXJlbmNpYSBlbiBtbSIpICsgdGhlbWVfbWluaW1hbCgpICsgdGhlbWUocGxvdC50aXRsZSA9IGVsZW1lbnRfdGV4dChzaXplID0gMTYsIGNvbG9yID0gIiM2NEJCQ0MiLCBmYWNlID0gIml0YWxpYyIsICJib2xkIiwgZmFtaWx5ID0ic2VyaWYiKSwgdGV4dCA9IGVsZW1lbnRfdGV4dChzaXplID0gOSkpCkJhc2UyX3NjYXR0ZXIKYGBgCgoKIyBBbm92YSBkZSB1bmEgdsOtYQoKIyMgQmFzZSBkZSBkYXRvcyBkZSBDaGlja2VuIFdlaWdodHMKYGBge3J9CmJhc2UzIDwtIGNoaWNrd3RzClZpZXcoYmFzZTMpCmBgYAoKIyMgRXhwbG9yYWNpw7NuIGRlIGxvcyBkYXRvcwoKYGBge3J9CiNHcnVwbyAxCm1lYW4oYmFzZTMkd2VpZ2h0W2Jhc2UzJGZlZWQgPT0gImhvcnNlYmVhbiJdKQptZWRpYW4oYmFzZTMkd2VpZ2h0W2Jhc2UzJGZlZWQgPT0gImhvcnNlYmVhbiJdKQpgYGAKCmBgYHtyfQojR3J1cG8gMgptZWFuKGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09ICJsaW5zZWVkIl0pCm1lZGlhbihiYXNlMyR3ZWlnaHRbYmFzZTMkZmVlZCA9PSAibGluc2VlZCJdKQpgYGAKCmBgYHtyfQojR3J1cG8gMwptZWFuKGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09ICJzb3liZWFuIl0pCm1lZGlhbihiYXNlMyR3ZWlnaHRbYmFzZTMkZmVlZCA9PSAic295YmVhbiJdKQpgYGAKCmBgYHtyfQojR3J1cG8gNAptZWFuKGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09ICJzdW5mbG93ZXIiXSkKbWVkaWFuKGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09ICJzdW5mbG93ZXIiXSkKYGBgCgpgYGB7cn0KI0dydXBvIDUKbWVhbihiYXNlMyR3ZWlnaHRbYmFzZTMkZmVlZCA9PSAibWVhdG1lYWwiXSkKbWVkaWFuKGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09ICJtZWF0bWVhbCJdKQpgYGAKCmBgYHtyfQojR3J1cG8gNgptZWFuKGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09ICJjYXNlaW4iXSkKbWVkaWFuKGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09ICJjYXNlaW4iXSkKYGBgCgoKIyMjIE5vcm1hbGlkYWQKTGFzIGRpc3RyaWJ1Y2lvbmVzIGRlIHRvZG9zIGxvcyBncnVwb3Mgc29uIG5vcm1hbGVzCmBgYHtyfQpzaGFwaXJvLnRlc3QoYmFzZTMkd2VpZ2h0W2Jhc2UzJGZlZWQgPT0gImhvcnNlYmVhbiJdKQpzaGFwaXJvLnRlc3QoYmFzZTMkd2VpZ2h0W2Jhc2UzJGZlZWQgPT0gImxpbnNlZWQiXSkKc2hhcGlyby50ZXN0KGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09ICJzb3liZWFuIl0pCnNoYXBpcm8udGVzdChiYXNlMyR3ZWlnaHRbYmFzZTMkZmVlZCA9PSAic3VuZmxvd2VyIl0pCnNoYXBpcm8udGVzdChiYXNlMyR3ZWlnaHRbYmFzZTMkZmVlZCA9PSAibWVhdG1lYWwiXSkKc2hhcGlyby50ZXN0KGJhc2UzJHdlaWdodFtiYXNlMyRmZWVkID09ICJjYXNlaW4iXSkKYGBgCiMjIyBIb21vZ2VuZWlkYWQgZGUgdmFyaWFuemEKSGF5IGhvbW9nZW5laWRhZCBkZSB2YXJpYW56YSBlbnRyZSBncnVwb3MKYGBge3J9CmxldmVuZS50ZXN0KGJhc2UzJHdlaWdodCwgYmFzZTMkZmVlZCkKYGBgCgoKCgoKCgoKCgoKCgoKCgo=</div>
 
 
 
