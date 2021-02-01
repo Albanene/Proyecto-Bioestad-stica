@@ -22,11 +22,12 @@ Sueño <- sleep
 
 
 ## Exploración de los datos
+Ambos grupos tienen distribuciones normales, por lo que sí se puede hacer el t-test.
 ```{r}
 shapiro.test(Sueño$extra[Sueño$group == 1])
 shapiro.test(Sueño$extra[Sueño$group == 2])
 ```
-Ambos grupos tienen distribuciones normales, por lo que sí se puede hacer el t-test.
+
 
 ```{r}
 # media
@@ -77,29 +78,29 @@ sd(Sueño$extra[Sueño$group == 2])
 ```
 
 ## Prueba t-test
+Aqui realizamos la prueba t test, la cual nos lanzó una p=0.07939, el cual interpretamos como casi sigificativa 
 ```{r}
 t.test(Sueño$extra[Sueño$group == 1], Sueño$extra[Sueño$group == 2])
 ```
-Aqui realizamos la prueba t test, la cual nos lanzó una p=0.07939, el cual interpretamos como casi sigificativa 
-##Boxplot
+
+## Boxplot
+Realizamos un boxplot para apreciar los datos de manera grafica y como es que se "relaciona" nuestras variables 
 ```{r}
 boxplots_sueño <- ggplot(Sueño, aes(x= group, y= extra, fill= group)) +
   geom_boxplot() +
   labs(title = "Distribución de las horas de sueño extra por grupo", x = "Grupo", y = "Horas extra") + theme_minimal() + theme(plot.title = element_text(size = 16, color = "#64BBCC", face = "italic", "bold", family ="serif"), text = element_text(size = 9), legend.title = element_blank(), legend.text = element_blank(), legend.position='none')
 boxplots_sueño
 ```
-Realizamos un boxplot para apreciar los datos de manera grafica y como es que se "relaciona" nuestras variables 
+
 
 
 # Correlación y regresión lineal
 
-Debido a que las pruevas de correalacion evaluan el cambio de las distintas variables. y nuestra primer base de datos tenia datos no apos para realizar este tipo de analisis estadistico, decidimos buscamos otra base de datos para llevar acabo estas pruebas. 
+Debido a que las pruevas de correalacion evaluan el cambio de las distintas variables. y nuestra primer base de datos tenia datos no apos para realizar este tipo de analisis estadístico, decidimos buscamos otra base de datos para llevar acabo estas pruebas. 
 
-
-#Base de datos Orange
-La base de datos Orange compila datos acerca de árboles de naranjas, registrando la edad, utilizando los "días desde 1968/12/31" y la circumferencia (en milímetros) de múltiples naranjos.
 
 ## Base de datos Orange
+La base de datos Orange compila datos acerca de árboles de naranjas, registrando la edad y la circunferencia (en milímetros) de múltiples naranjos
 
 ```{r}
 Base2 <- Orange
@@ -108,6 +109,8 @@ View(Base2)
 ```
 
 ## Correlación y Gráfica de correlación
+Realizamos una correlación entre las variables "edad" y "circunferencia", es decir que si la circunferencia de la fruta aumentaba a la par del tiempo.
+Nos resulto un coeficiente de correlación 0.9135189 siendo significativa entre las dos variables
 ```{r}
 Circunferencia <- Orange$circumference
 Edad <- Orange$age
@@ -115,10 +118,10 @@ Edad <- Orange$age
 cor(x = Edad, y = Circunferencia)
 pairs(Edad ~ Circunferencia)
 ```
-Realizamos una correlación entre las variables "edad" y "circunferencia", es decir que si la circunferencia de la fruta aumentaba a la par del tiempo.
-Nos resulto un coeficiente de correlación 0.9135189 siendo significativa entre las dos variables 
+ 
 
 ## Gráfica de puntos y regresión lineal
+Graficamos los graficos en un scatter y le aplicamos regresión lineal
 ```{r}
 Base2_scatter <- ggplot(Base2, aes(Edad, Circunferencia)) +
   geom_point () +
@@ -129,8 +132,10 @@ Base2_scatter
 
 
 # Anova de una vía
+Para hacer una anova de una vía, buscamos una base de datos de un factor con varios niveles.
 
 ## Base de datos de Chicken Weights
+La base de datos chickwts recopila datos de un experimento donde se comparó el efecto de distintos alimentos en el peso de gallinas.
 ```{r}
 base3 <- chickwts
 View(base3)
@@ -138,6 +143,7 @@ View(base3)
 
 ## Exploración de los datos
 
+### Medias y medianas de cada grupo
 ```{r}
 #Grupo 1
 mean(base3$weight[base3$feed == "horsebean"])
