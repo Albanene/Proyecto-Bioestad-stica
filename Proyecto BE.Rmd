@@ -6,6 +6,8 @@ output: html_notebook
 ```{r = setup}
 library(dplyr)
 library(ggplot2)
+library(lawstat)
+library(rstatix)
 ```
 
 # Prueba t-test para grupos dependientes
@@ -195,6 +197,17 @@ shapiro.test(base3$weight[base3$feed == "casein"])
 Hay homogeneidad de varianza entre grupos
 ```{r}
 levene.test(base3$weight, base3$feed)
+```
+## Anova
+Sí hay diferencias significativas entre grupos (p < 0.05)
+```{r}
+base3 %>% anova_test(weight ~ feed)
+```
+
+## Prueba post-hoc Tukey
+Prueba para determinar entre qué grupos están las diferencias. Mientras más asteriscos más significativa la diferencia.
+```{r}
+base3 %>% tukey_hsd(weight ~ feed)
 ```
 
 
